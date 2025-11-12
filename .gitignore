@@ -1,0 +1,36 @@
+# Environment variables (contains private keys)
+.env
+
+# Local data files
+claims_log.json
+*.log
+
+# Node modules
+node_modules/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test files
+test-*.js
+*-test.js
+
+# Demo/prep files
+demo-prep.js
+temp-*.js
+
+# Build artifacts
+dist/
+build/

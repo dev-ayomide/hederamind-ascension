@@ -1,0 +1,21 @@
+{
+  "name": "hedera-trust-logger",
+  "version": "1.0.0",
+  "description": "AI-powered truth checker that logs results on Hedera.",
+  "type": "module",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js",
+    "submit": "node src/submitClaim.js",
+    "verify": "node src/verifyClaim.js",
+    "create-topic": "node scripts/createTopic.js",
+    "demo": "node demo.js",
+    "stats": "node src/main.js stats"
+  },
+  "dependencies": {
+    "@hashgraph/sdk": "^2.27.0",
+    "axios": "^1.6.8",
+    "dotenv": "^16.3.1",
+    "node-fetch": "^3.3.2"
+  }
+}
