@@ -1,51 +1,81 @@
-# 🧠 HederaMind - AI-Powered Truth Verification System
+# 🧠 Hedera Mind: Ascension - The AI That Never Lies
 
-**HederaMind** is a comprehensive truth verification system that uses **Grok AI** to evaluate claims and logs results immutably on the **Hedera Consensus Service**. Perfect for creating tamper-proof records of verified information.
+**Hedera Mind: Ascension** is an autonomous AI agent marketplace where truth is bought, sold, and rewarded. Built on **Hedera** with **Grok AI**, it creates a decentralized economy where verified facts have real value and truth seekers earn NFT badges.
+
+🏆 **Evolution of 2024 Winning Project** - Now with Agent-to-Agent (A2A) marketplace!
+
+> *"From AI Journaling to Truth Marketplace - 10x Bigger"*
 
 ## 🚀 Key Features
 
-- **🤖 Grok AI Integration**: Uses Grok API for intelligent claim verification
-- **⛓️ Blockchain Logging**: Immutable storage on Hedera Consensus Service  
-- **💾 Local Storage**: JSON-based claim logging for quick access and analytics
-- **🏗️ Modular Architecture**: Clean separation of concerns with dedicated modules
-- **🔄 Multiple Verification Methods**: AI, rule-based, and mock verification modes
-- **📦 Batch Processing**: Process multiple claims efficiently with rate limiting
-- **📊 Real-time Dashboard**: Track verification accuracy and system statistics
-- **🛡️ Error Handling**: Graceful fallbacks and detailed error reporting
+### Core System
+- **🤖 Grok AI Integration**: Intelligent claim verification using Llama 3.3 70B
+- **⛓️ Hedera Consensus Service**: Immutable, tamper-proof truth logging
+- **💾 Smart Storage**: Local + blockchain hybrid architecture
 
-## 🎯 How It Works
+### 🆕 Agent Marketplace (NEW!)
+- **🤖 TruthAgent**: Autonomous agent that sells verified claims for 0.01 HBAR
+- **🏆 BadgeAgent**: Mints NFT badges after every 5 purchases
+- **🔗 A2A Communication**: Agents coordinate autonomously via events
+- **💰 Micro-payments**: Real value exchange for verified facts
+- **🎨 Tiered NFTs**: Bronze → Uncommon → Rare → Epic → Legendary
+- **📊 Live Dashboard**: Real-time marketplace statistics and badge gallery
 
-HederaMind follows a simple but powerful workflow:
+## 🎯 How It Works - The Full Picture
 
-1. **� Claim Input**: Submit any factual claim for verification
-2. **🔍 AI Analysis**: Grok AI evaluates the claim's truthfulness  
-3. **💾 Local Storage**: Claim and result saved to `claims_log.json`
-4. **⛓️ Blockchain Submit**: Verified claim logged to Hedera Consensus Service
-5. **📊 Analytics**: Real-time dashboard shows system performance
-
-### 🔄 Verification Process
-
+### Traditional Mode (Original)
 ```
-Input Claim → Grok AI Analysis → Generate Results → Save Locally → Submit to Hedera
-     ↓              ↓                    ↓             ↓              ↓
-"Sky is blue" → AI: "TRUE 95%" → JSON Record → Local File → Blockchain TX
+User → Submit Claim → Grok AI Verification → Hedera HCS → Done
 ```
 
-## �📁 Project Structure
+### 🆕 Ascension Mode (Agent Marketplace)
+```
+User Submits Claim
+     ↓
+🤖 TruthAgent: Verifies with Grok AI
+     ↓
+✅ If TRUE → Sells for 0.01 HBAR
+     ↓
+📡 Event: "claimSold"
+     ↓
+🏆 BadgeAgent: Records Purchase
+     ↓
+📊 Count Reaches 5?
+     ↓
+🎨 Mint NFT Badge (HTS)
+     ↓
+🎉 User Gets Badge!
+```
+
+### The Magic: Agent-to-Agent Communication
+- **TruthAgent** and **BadgeAgent** work together autonomously
+- No manual intervention needed
+- Events trigger automatic badge minting
+- Users earn rewards just by buying verified claims!
+
+## 📁 Project Structure
 
 ```
 hederamind/
-├── .env                    # 🔐 Environment variables (Hedera keys, Grok API key)
-├── package.json           # 📦 Dependencies and npm scripts  
-├── claims_log.json        # 📊 Local storage for processed claims
+├── .env                          # 🔐 Environment variables
+├── package.json                  # 📦 Dependencies and scripts
+├── claims_log.json              # 📊 Local claim storage
+├── README-HACKATHON.md          # 🏆 Hackathon submission guide
+├── public/
+│   └── index.html               # 🎨 Web dashboard UI
 ├── scripts/
-│   └── createTopic.js     # 🏗️ Create new Hedera topics
+│   └── createTopic.js           # 🏗️ Create Hedera topics
 └── src/
-    ├── main.js           # 🎛️ Main orchestrator (HederaMind class)
-    ├── agent.js          # 🤖 Grok AI integration 
-    ├── verifyClaim.js    # ✅ Claim verification logic
-    ├── storage.js        # 💾 Local storage utilities
-    └── submitClaim.js    # 🚀 Demo script for claim submission
+    ├── main.js                  # 🎛️ Main orchestrator
+    ├── agent.js                 # 🤖 Grok AI integration
+    ├── verifyClaim.js           # ✅ Verification engine
+    ├── storage.js               # 💾 Storage utilities
+    ├── marketplace.js           # 🆕 Agent marketplace demo
+    ├── helpers.js               # 🔧 Helper functions
+    └── agents/                  # 🆕 Autonomous agents
+        ├── TruthAgent.js        #    Sells verified claims
+        ├── BadgeAgent.js        #    Mints NFT badges
+        └── AgentCoordinator.js  #    A2A communication
 ```
 
 ## 🛠️ Setup & Installation
@@ -69,8 +99,11 @@ OPERATOR_ID=0.0.YOUR_ACCOUNT_ID
 OPERATOR_KEY=your_private_key_here
 TOPIC_ID=0.0.YOUR_TOPIC_ID
 
-# Grok AI API Key  
-GROK_API_KEY=gsk_your_grok_api_key_here
+# Grok AI API Key (from x.ai or your AI provider)
+GROQ_API_KEY=gsk_your_groq_api_key_here
+
+# Optional: Badge Token ID (created automatically if not set)
+BADGE_TOKEN_ID=0.0.YOUR_BADGE_TOKEN
 ```
 
 ### Step 3: Create Hedera Topic (if needed)
@@ -86,17 +119,30 @@ npm start stats
 
 ## 🎮 Usage Guide
 
-### 🚀 Quick Start Demo
+### 🚀 Quick Start Demos
 
-**Run the complete demo with 4 sample claims:**
+**1. Original Demo (Basic Verification):**
 ```bash
 npm run submit
 ```
+
+**2. 🆕 Agent Marketplace Demo (Recommended!):**
+```bash
+npm run marketplace
+```
 This will:
-- Process 4 different claims
-- Show verification results
-- Submit to Hedera blockchain
-- Display final dashboard
+- Initialize TruthAgent and BadgeAgent
+- Process 5 test claims through the marketplace
+- Show agent-to-agent communication
+- Demonstrate automatic badge minting
+- Display comprehensive statistics
+
+**3. Web Dashboard:**
+```bash
+# Open in your browser
+start public/index.html  # Windows
+open public/index.html   # Mac/Linux
+```
 
 ### 🎯 Single Claim Processing
 

@@ -1,0 +1,86 @@
+[
+  {
+    "claim": "is computer science a course in university?",
+    "verdict": "TRUE",
+    "confidence": 85,
+    "reasoning": "TRUE - Computer science is indeed a common course or major offered at many universities, where students can study the theory, design, and implementation of computer systems and technology.",
+    "buyer": "0.0.9405964",
+    "seller": "0.0.6398676",
+    "price": 0.01,
+    "transactionId": "tx_1763479309125_j0anzsc64",
+    "id": "sale_1763479309126_sep5zm",
+    "timestamp": "2025-11-18T15:21:49.126Z"
+  },
+  {
+    "claim": "is computer science a course in university?",
+    "verdict": "TRUE",
+    "confidence": 85,
+    "reasoning": "TRUE - Computer science is indeed a common course or major offered at many universities, where students can study the theory, design, and implementation of computer systems and technology.",
+    "buyer": "0.0.9405964",
+    "seller": "0.0.6398676",
+    "price": 0.01,
+    "transactionId": "tx_1763479947904_26ud2ohu3",
+    "id": "sale_1763479947907_ckjdnn",
+    "timestamp": "2025-11-18T15:32:27.907Z"
+  },
+  {
+    "claim": "is computer science a course in university?",
+    "verdict": "TRUE",
+    "confidence": 85,
+    "reasoning": "TRUE - Computer science is indeed a common course or major offered at many universities, where students can study the theory, design, and implementation of computer systems and technology.",
+    "buyer": "0.0.9405964",
+    "seller": "0.0.6398676",
+    "price": 0.01,
+    "transactionId": "tx_1763480189328_18ohr7w6t",
+    "id": "sale_1763480189330_zoiqi0",
+    "timestamp": "2025-11-18T15:36:29.330Z"
+  },
+  {
+    "claim": "is computer science a course in university?",
+    "verdict": "TRUE",
+    "confidence": 85,
+    "reasoning": "TRUE - Computer science is indeed a common course or major offered at many universities, where students can study the theory, design, and implementation of computer systems and technology.",
+    "buyer": "0.0.9405964",
+    "seller": "0.0.6398676",
+    "price": 0.01,
+    "transactionId": "tx_1763480210633_pxaucfxx4",
+    "id": "sale_1763480210636_8kcfxz",
+    "timestamp": "2025-11-18T15:36:50.636Z"
+  },
+  {
+    "claim": "is computer science a course in university?",
+    "verdict": "TRUE",
+    "confidence": 85,
+    "reasoning": "TRUE - Computer science is indeed a common course or major offered at many universities, where students can study the theory, design, and implementation of computer systems and technology.",
+    "buyer": "0.0.9405964",
+    "seller": "0.0.6398676",
+    "price": 0.01,
+    "transactionId": "tx_1763480216471_7w2wlrd2b",
+    "id": "sale_1763480216473_3hmkt1",
+    "timestamp": "2025-11-18T15:36:56.473Z"
+  },
+  {
+    "claim": "is computer science a course in university?",
+    "verdict": "TRUE",
+    "confidence": 85,
+    "reasoning": "TRUE - Computer science is indeed a common course or major offered at many universities, where students can study the theory, design, and implementation of computer systems and technology.",
+    "buyer": "0.0.9405964",
+    "seller": "0.0.6398676",
+    "price": 0.01,
+    "transactionId": "tx_1763480866206_hhljxmced",
+    "id": "sale_1763480866207_3r20im",
+    "timestamp": "2025-11-18T15:47:46.207Z"
+  },
+  {
+    "claim": "is computer science a course in university?",
+    "verdict": "TRUE",
+    "confidence": 85,
+    "reasoning": "TRUE - Computer science is indeed a common course or major offered at many universities, where students can study the theory, design, and implementation of computer systems and technology.",
+    "buyer": "0.0.9405964",
+    "seller": "0.0.6398676",
+    "price": 0.01,
+    "transactionId": "tx_1763480869830_zkyoem1ue",
+    "id": "sale_1763480869831_qcsbor",
+    "timestamp": "2025-11-18T15:47:49.831Z"
+  }
+]

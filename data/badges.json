@@ -1,0 +1,15 @@
+[
+  {
+    "recipient": "0.0.9405964",
+    "tier": "BRONZE",
+    "purchaseCount": 5,
+    "tokenId": "0.0.DEMO_BADGE",
+    "serialNumber": "1763480216477",
+    "metadata": {
+      "name": "Truth Seeker Badge - BRONZE",
+      "description": "Earned after 5 verified claim purchases"
+    },
+    "id": "badge_1763480216479_c6ydiw",
+    "mintedAt": "2025-11-18T15:36:56.479Z"
+  }
+]

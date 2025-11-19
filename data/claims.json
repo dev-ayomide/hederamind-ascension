@@ -1,0 +1,90 @@
+[
+  {
+    "claim": "The earth is flat",
+    "verdict": "TRUE",
+    "confidence": 95,
+    "reasoning": "Scientific consensus places Earth's age at approximately 4.54 billion years.",
+    "verifier": "Mock AI (Demo Mode)",
+    "submittedBy": "anonymous",
+    "status": "verified",
+    "id": "claim_1763466226826_rwkhkb",
+    "timestamp": "2025-11-18T11:43:46.826Z"
+  },
+  {
+    "claim": "The earth is red",
+    "verdict": "TRUE",
+    "confidence": 95,
+    "reasoning": "Scientific consensus places Earth's age at approximately 4.54 billion years.",
+    "verifier": "Mock AI (Demo Mode)",
+    "submittedBy": "anonymous",
+    "status": "verified",
+    "id": "claim_1763466241657_1jm8ie",
+    "timestamp": "2025-11-18T11:44:01.657Z"
+  },
+  {
+    "claim": "The earth is red",
+    "verdict": "TRUE",
+    "confidence": 95,
+    "reasoning": "Scientific consensus places Earth's age at approximately 4.54 billion years.",
+    "verifier": "Mock AI (Demo Mode)",
+    "submittedBy": "anonymous",
+    "status": "verified",
+    "id": "claim_1763466252989_lp83pg",
+    "timestamp": "2025-11-18T11:44:12.989Z"
+  },
+  {
+    "claim": "is the earth flat?",
+    "verdict": "TRUE",
+    "confidence": 95,
+    "reasoning": "Scientific consensus places Earth's age at approximately 4.54 billion years.",
+    "verifier": "Mock AI (Demo Mode)",
+    "submittedBy": "anonymous",
+    "status": "verified",
+    "id": "claim_1763475742572_1g6gza",
+    "timestamp": "2025-11-18T14:22:22.573Z"
+  },
+  {
+    "claim": "is the earth flat?",
+    "verdict": "TRUE",
+    "confidence": 95,
+    "reasoning": "Scientific consensus places Earth's age at approximately 4.54 billion years.",
+    "verifier": "Mock AI (Demo Mode)",
+    "submittedBy": "anonymous",
+    "status": "verified",
+    "id": "claim_1763475852655_ddwvlp",
+    "timestamp": "2025-11-18T14:24:12.656Z"
+  },
+  {
+    "claim": "is computer science a course",
+    "verdict": "TRUE",
+    "confidence": 76,
+    "reasoning": "Mock verification - This claim requires expert analysis.",
+    "verifier": "Mock AI (Demo Mode)",
+    "submittedBy": "anonymous",
+    "status": "verified",
+    "id": "claim_1763475878184_wj2y6c",
+    "timestamp": "2025-11-18T14:24:38.184Z"
+  },
+  {
+    "claim": "is computer science a course in university?",
+    "verdict": "TRUE",
+    "confidence": 85,
+    "reasoning": "TRUE - Computer science is indeed a common course or major offered at many universities, where students can study the theory, design, and implementation of computer systems and technology.",
+    "verifier": "GROQ AI (Llama 3.3 70B)",
+    "submittedBy": "0.0.9405964",
+    "status": "verified",
+    "id": "claim_1763478896232_d7mh0z",
+    "timestamp": "2025-11-18T15:14:56.232Z"
+  },
+  {
+    "claim": "is computer science a course in university?",
+    "verdict": "TRUE",
+    "confidence": 85,
+    "reasoning": "TRUE - Computer science is indeed a common course or major offered at many universities, where students can study the theory, design, and implementation of computer systems and technology.",
+    "verifier": "GROQ AI (Llama 3.3 70B)",
+    "submittedBy": "0.0.9405964",
+    "status": "verified",
+    "id": "claim_1763479227459_gssjfj",
+    "timestamp": "2025-11-18T15:20:27.459Z"
+  }
+]
