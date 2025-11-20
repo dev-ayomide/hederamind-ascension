@@ -1,6 +1,20 @@
 import { storageService } from '../../services/storage.service.js';
 import { hederaService } from '../../services/hedera.service.js';
 import { aiService } from '../../services/ai.service.js';
+import { agentRegistryService } from '../../services/agentRegistry.service.js';
+import { badgeService } from '../../services/badge.service.js';
+
+const BADGE_IMAGE_MAP = {
+  BRONZE: process.env.BADGE_BRONZE_IPFS_URL,
+  UNCOMMON: process.env.BADGE_UNCOMMON_IPFS_URL,
+  RARE: process.env.BADGE_RARE_IPFS_URL,
+  EPIC: process.env.BADGE_EPIC_IPFS_URL,
+  LEGENDARY: process.env.BADGE_LEGENDARY_IPFS_URL
+};
+
+function getBadgeImage(tier) {
+  return BADGE_IMAGE_MAP[tier] || null;
+}
 
 /**
  * Marketplace Controller - Handles agent marketplace operations
@@ -31,6 +45,29 @@ export const marketplaceController = {
 
       console.log(`💰 Processing purchase for: ${buyerAccountId}`);
 
+      const agentId = process.env.TRUTH_AGENT_ID || 'truth-agent';
+      let agentProof = null;
+
+      if (agentRegistryService.isEnabled()) {
+        agentProof = await agentRegistryService.getAgentProof(agentId);
+
+        if (agentProof?.error) {
+          return res.status(503).json({
+            success: false,
+            error: 'Agent unavailable',
+            message: `TruthAgent proof unavailable: ${agentProof.error}`
+          });
+        }
+
+        if (!agentProof.active) {
+          return res.status(503).json({
+            success: false,
+            error: 'Agent inactive',
+            message: 'TruthAgent is not active on-chain'
+          });
+        }
+      }
+
       // Step 1: Verify the claim
       const verification = await aiService.verifyClaim(claim);
 
@@ -57,7 +94,11 @@ export const marketplaceController = {
         buyer: buyerAccountId,
         seller: hederaService.operatorId,
         price: 0.01,
-        transactionId: `tx_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+        transactionId: `tx_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+        agent: {
+          id: agentId,
+          proof: agentProof
+        }
       };
 
       const savedSale = await storageService.addSale(saleData);
@@ -79,19 +120,63 @@ export const marketplaceController = {
       let badge = null;
 
       if (purchaseCount % badgeThreshold === 0) {
-        // Mint badge!
-        badge = {
-          recipient: buyerAccountId,
-          tier: calculateBadgeTier(purchaseCount),
-          purchaseCount,
-          tokenId: process.env.BADGE_TOKEN_ID || '0.0.DEMO_BADGE',
-          serialNumber: `${Date.now()}`,
-          metadata: {
-            name: `Truth Seeker Badge - ${calculateBadgeTier(purchaseCount)}`,
-            description: `Earned after ${purchaseCount} verified claim purchases`
-          }
-        };
+        const tier = calculateBadgeTier(purchaseCount);
+        const badgeImage = getBadgeImage(tier);
 
+        // Try to mint real NFT badge
+        try {
+          const mintedBadge = await badgeService.mintBadge(buyerAccountId, purchaseCount);
+          
+          if (mintedBadge) {
+            // Real NFT was minted
+            badge = {
+              recipient: buyerAccountId,
+              tier,
+              purchaseCount,
+              tokenId: mintedBadge.tokenId,
+              serialNumber: mintedBadge.serialNumber,
+              transactionId: mintedBadge.transactionId,
+              metadata: {
+                ...mintedBadge.metadata,
+                image: mintedBadge.metadata?.image || badgeImage
+              },
+              mintedAt: mintedBadge.mintedAt
+            };
+            console.log(`✅ Real NFT badge minted: ${badge.tokenId} #${badge.serialNumber}`);
+          } else {
+            // Fallback to demo badge if minting failed
+            badge = {
+              recipient: buyerAccountId,
+              tier,
+              purchaseCount,
+              tokenId: process.env.BADGE_TOKEN_ID || '0.0.DEMO_BADGE',
+              serialNumber: `${Date.now()}`,
+              metadata: {
+                name: `Truth Seeker Badge - ${tier}`,
+                description: `Earned after ${purchaseCount} verified claim purchases`,
+                image: badgeImage
+              }
+            };
+            console.log(`⚠️  Using demo badge (NFT minting unavailable)`);
+          }
+        } catch (mintError) {
+          console.error('❌ Badge minting error:', mintError.message);
+          // Fallback to demo badge
+          badge = {
+            recipient: buyerAccountId,
+            tier,
+            purchaseCount,
+            tokenId: process.env.BADGE_TOKEN_ID || '0.0.DEMO_BADGE',
+            serialNumber: `${Date.now()}`,
+            metadata: {
+              name: `Truth Seeker Badge - ${tier}`,
+              description: `Earned after ${purchaseCount} verified claim purchases`,
+              image: badgeImage
+            }
+          };
+        }
+
+        // Save badge to storage
         await storageService.addBadge(badge);
         
         // Update user badge count
@@ -99,7 +184,7 @@ export const marketplaceController = {
           badgesEarned: (user.badgesEarned || 0) + 1
         });
 
-        console.log(`🏆 Badge minted for ${buyerAccountId}!`);
+        console.log(`🏆 Badge recorded for ${buyerAccountId}!`);
       }
 
       // Step 6: Submit to HCS
@@ -125,6 +210,7 @@ export const marketplaceController = {
           badgesEarned: updatedUser.badgesEarned || 0,
           nextBadgeIn: badgeThreshold - (purchaseCount % badgeThreshold)
         },
+        agentProof,
         badge: badge ? {
           minted: true,
           badge

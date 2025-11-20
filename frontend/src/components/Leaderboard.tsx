@@ -26,12 +26,12 @@ export default function Leaderboard() {
   return (
     <div className="card">
       <div className="flex items-center gap-2 mb-4">
-        <Trophy className="w-6 h-6 text-yellow-500" />
-        <h3 className="text-xl font-bold">Leaderboard</h3>
+        <Trophy className="w-5 h-5 sm:w-6 sm:h-6 text-secondary-600" />
+        <h3 className="text-lg sm:text-xl font-bold text-slate-900">Leaderboard</h3>
       </div>
 
       {leaderboard?.length === 0 ? (
-        <p className="text-gray-500 text-sm text-center py-8">
+        <p className="text-slate-600 text-sm text-center py-8 font-medium">
           No users yet. Be the first!
         </p>
       ) : (
@@ -39,14 +39,14 @@ export default function Leaderboard() {
           {leaderboard?.map((entry: LeaderboardEntry, index: number) => (
             <div
               key={entry.accountId}
-              className={`flex items-center gap-3 p-3 rounded-lg transition-all ${
+              className={`flex items-center gap-3 p-3.5 rounded-xl transition-all ${
                 index === 0
-                  ? 'bg-gradient-to-r from-yellow-50 to-yellow-100 border-2 border-yellow-300'
+                  ? 'bg-gradient-to-r from-secondary-50 to-secondary-100 border-2 border-secondary-300 shadow-sm'
                   : index === 1
-                  ? 'bg-gradient-to-r from-gray-50 to-gray-100 border border-gray-300'
+                  ? 'bg-gradient-to-r from-slate-50 to-slate-100 border border-slate-300'
                   : index === 2
                   ? 'bg-gradient-to-r from-amber-50 to-amber-100 border border-amber-300'
-                  : 'bg-gray-50 border border-gray-200'
+                  : 'bg-slate-50 border border-slate-200'
               }`}
             >
               <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center">
@@ -57,15 +57,15 @@ export default function Leaderboard() {
                 ) : index === 2 ? (
                   <span className="text-2xl">🥉</span>
                 ) : (
-                  <span className="text-sm font-bold text-gray-500">#{index + 1}</span>
+                  <span className="text-sm font-bold text-slate-500">#{index + 1}</span>
                 )}
               </div>
 
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium text-gray-900 truncate">
+                <p className="text-sm font-semibold text-slate-900 truncate">
                   {entry.accountId}
                 </p>
-                <div className="flex items-center gap-2 text-xs text-gray-500">
+                <div className="flex items-center gap-2 text-xs text-slate-600 font-medium mt-0.5">
                   <span>🛒 {entry.purchaseCount} purchases</span>
                   <span>•</span>
                   <span>🏆 {entry.badgesEarned} badges</span>

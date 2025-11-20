@@ -45,21 +45,21 @@ export default function ClaimVerifier() {
   const getVerdictColor = (verdict: string) => {
     switch (verdict) {
       case 'TRUE':
-        return 'bg-green-50 border-green-200'
+        return 'bg-emerald-50 border-emerald-200'
       case 'FALSE':
         return 'bg-red-50 border-red-200'
       default:
-        return 'bg-yellow-50 border-yellow-200'
+        return 'bg-amber-50 border-amber-200'
     }
   }
 
   return (
     <div className="card">
-      <h2 className="text-2xl font-bold mb-6 text-gray-900">Verify a Claim</h2>
+      <h2 className="text-xl sm:text-2xl font-bold mb-6 text-slate-900">Verify a Claim</h2>
       
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="claim" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="claim" className="block text-sm font-semibold text-slate-700 mb-2">
             Enter your claim to verify
           </label>
           <textarea
@@ -67,7 +67,7 @@ export default function ClaimVerifier() {
             value={claimText}
             onChange={(e) => setClaimText(e.target.value)}
             placeholder="e.g., The Earth is round"
-            className="input min-h-32 resize-none"
+            className="input min-h-32 resize-none text-slate-700 placeholder:text-slate-400"
             disabled={verifyMutation.isPending}
           />
         </div>
@@ -91,8 +91,8 @@ export default function ClaimVerifier() {
       </form>
 
       {verifyMutation.isError && (
-        <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
-          <p className="text-red-800 font-medium">Verification failed</p>
+        <div className="mt-4 p-4 bg-red-50 border-2 border-red-200 rounded-xl">
+          <p className="text-red-800 font-semibold">Verification failed</p>
           <p className="text-red-600 text-sm mt-1">
             {(verifyMutation.error as Error).message || 'Please try again later'}
           </p>
@@ -100,42 +100,42 @@ export default function ClaimVerifier() {
       )}
 
       {result && (
-        <div className={`mt-6 p-6 rounded-xl border-2 ${getVerdictColor(result.verdict)}`}>
-          <div className="flex items-start gap-4">
+        <div className={`mt-6 p-4 sm:p-6 rounded-xl border-2 ${getVerdictColor(result.verdict)}`}>
+          <div className="flex items-start gap-3 sm:gap-4">
             <div className="flex-shrink-0">
               {getVerdictIcon(result.verdict)}
             </div>
-            <div className="flex-1">
-              <h3 className="text-xl font-bold mb-2">
+            <div className="flex-1 min-w-0">
+              <h3 className="text-lg sm:text-xl font-bold mb-3 text-slate-900">
                 Verdict: <span className={
-                  result.verdict === 'TRUE' ? 'text-green-700' :
+                  result.verdict === 'TRUE' ? 'text-emerald-700' :
                   result.verdict === 'FALSE' ? 'text-red-700' :
-                  'text-yellow-700'
+                  'text-amber-700'
                 }>{result.verdict}</span>
               </h3>
               
-              <div className="mb-3">
-                <p className="text-sm font-medium text-gray-600 mb-1">Confidence</p>
-                <div className="w-full bg-gray-200 rounded-full h-3">
+              <div className="mb-4">
+                <p className="text-sm font-semibold text-slate-700 mb-2">Confidence</p>
+                <div className="w-full bg-slate-200 rounded-full h-2.5">
                   <div
-                    className={`h-3 rounded-full transition-all ${
-                      result.verdict === 'TRUE' ? 'bg-green-500' :
+                    className={`h-2.5 rounded-full transition-all ${
+                      result.verdict === 'TRUE' ? 'bg-emerald-500' :
                       result.verdict === 'FALSE' ? 'bg-red-500' :
-                      'bg-yellow-500'
+                      'bg-amber-500'
                     }`}
                     style={{ width: `${result.confidence}%` }}
                   />
                 </div>
-                <p className="text-xs text-gray-500 mt-1">{result.confidence}% confident</p>
+                <p className="text-xs text-slate-600 mt-1.5 font-medium">{result.confidence}% confident</p>
               </div>
 
               <div>
-                <p className="text-sm font-medium text-gray-600 mb-1">AI Reasoning</p>
-                <p className="text-sm text-gray-700">{result.reasoning}</p>
+                <p className="text-sm font-semibold text-slate-700 mb-2">AI Reasoning</p>
+                <p className="text-sm text-slate-600 leading-relaxed">{result.reasoning}</p>
               </div>
 
-              <div className="mt-4 pt-4 border-t border-gray-300">
-                <p className="text-xs text-gray-500">
+              <div className="mt-4 pt-4 border-t border-slate-300">
+                <p className="text-xs text-slate-500 font-medium">
                   Verified by: {result.verifier} | 
                   Claim ID: {result.id}
                 </p>

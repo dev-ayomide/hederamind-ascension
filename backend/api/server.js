@@ -14,6 +14,8 @@ import statsRouter from './routes/stats.js';
 // Import services
 import { hederaService } from '../services/hedera.service.js';
 import { storageService } from '../services/storage.service.js';
+import { agentRegistryService } from '../services/agentRegistry.service.js';
+import { badgeService } from '../services/badge.service.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -105,6 +107,23 @@ async function startServer() {
     console.log('📦 Initializing services...');
     await storageService.initialize();
     await hederaService.initialize();
+    await badgeService.initialize();
+
+    // Register default agents on-chain when contract configured
+    const registryResults = await agentRegistryService.bootstrapDefaultAgents();
+    if (registryResults.length > 0) {
+      console.log('\n🔐 Agent registry status:');
+      registryResults.forEach((result) => {
+        if (result.error) {
+          console.log(`   ⚠️  ${result.agentId}: ${result.error}`);
+        } else if (result.newlyRegistered) {
+          console.log(`   ✅ ${result.agentId} registered on-chain (key: ${result.agentKey})`);
+        } else {
+          console.log(`   🔁 ${result.agentId} already registered (key: ${result.agentKey})`);
+        }
+      });
+      console.log('');
+    }
 
     // Start server
     app.listen(PORT, () => {

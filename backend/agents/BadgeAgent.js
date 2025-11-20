@@ -8,6 +8,32 @@ import {
   PrivateKey
 } from "@hashgraph/sdk";
 
+const BADGE_IMAGE_MAP = {
+  BRONZE: process.env.BADGE_BRONZE_IPFS_URL,
+  UNCOMMON: process.env.BADGE_UNCOMMON_IPFS_URL,
+  RARE: process.env.BADGE_RARE_IPFS_URL,
+  EPIC: process.env.BADGE_EPIC_IPFS_URL,
+  LEGENDARY: process.env.BADGE_LEGENDARY_IPFS_URL
+};
+
+function getBadgeImage(tier) {
+  return BADGE_IMAGE_MAP[tier] || null;
+}
+
+function toIpfsUri(imageUrl) {
+  if (!imageUrl) return null;
+  // Extract CID if it's an HTTP gateway URL
+  const match = imageUrl.match(/ipfs\/([^/?#]+)/);
+  if (match && match[1]) {
+    return `ipfs://${match[1]}`;
+  }
+  // Already cid or ipfs scheme
+  if (imageUrl.startsWith('ipfs://')) {
+    return imageUrl;
+  }
+  return imageUrl;
+}
+
 /**
  * BadgeAgent - Mints NFT badges for truth seekers
  * 
@@ -141,14 +167,24 @@ export class BadgeAgent {
       const tier = this.calculateBadgeTier(purchaseCount);
       
       // Create metadata for the NFT
+      const badgeImage = getBadgeImage(tier);
       const metadata = {
         name: `Truth Seeker Badge - ${tier}`,
         tier,
         purchaseCount,
         mintedAt: new Date().toISOString(),
         recipient: accountId,
-        description: `Awarded for verifying ${purchaseCount} truthful claims on Hedera Mind: Ascension`
+        description: `Awarded for verifying ${purchaseCount} truthful claims on Hedera Mind: Ascension`,
+        image: badgeImage
       };
+      const onChainPayload = {
+        name: metadata.name,
+        image: toIpfsUri(badgeImage) || undefined
+      };
+      let onChainMetadata = JSON.stringify(onChainPayload);
+      if (onChainMetadata.length > 100) {
+        onChainMetadata = JSON.stringify({ name: metadata.name });
+      }
 
       // For production: mint actual NFT
       let serialNumber = null;
@@ -156,15 +192,15 @@ export class BadgeAgent {
 
       if (this.badgeTokenId !== '0.0.DEMO_BADGE_TOKEN') {
         try {
-          // Convert metadata to bytes
-          const metadataBytes = Buffer.from(JSON.stringify(metadata));
+          // Convert metadata to bytes (Hedera limit 100 bytes)
+          const onChainBytes = Buffer.from(onChainMetadata);
           
           const privateKey = PrivateKey.fromString(this.operatorKey);
           
           // Mint NFT
           const mintTx = await new TokenMintTransaction()
             .setTokenId(this.badgeTokenId)
-            .setMetadata([metadataBytes])
+            .setMetadata([onChainBytes])
             .freezeWith(this.client);
           
           const signedMintTx = await mintTx.sign(privateKey);

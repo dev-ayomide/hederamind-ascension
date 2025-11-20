@@ -11,68 +11,68 @@ export default function LiveStats() {
 
   if (isLoading) {
     return (
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 mb-8 sm:mb-12">
         {[...Array(4)].map((_, i) => (
-          <div key={i} className="card animate-shimmer h-24"></div>
+          <div key={i} className="card animate-shimmer h-20 sm:h-24"></div>
         ))}
       </div>
     )
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-      <div className="card hover:shadow-xl transition-shadow">
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="text-gray-500 text-sm mb-1">Total Claims</p>
-            <p className="text-3xl font-bold text-gray-900">{stats?.totalClaims || 0}</p>
-            <p className="text-xs text-green-600 mt-1">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 mb-8 sm:mb-12">
+      <div className="card hover:shadow-xl transition-all">
+        <div className="flex items-center justify-between gap-2">
+          <div className="min-w-0 flex-1">
+            <p className="text-slate-500 text-xs sm:text-sm mb-1 font-medium truncate">Total Claims</p>
+            <p className="text-2xl sm:text-3xl font-bold text-slate-900 mb-0.5 sm:mb-1">{stats?.totalClaims || 0}</p>
+            <p className="text-xs text-emerald-600 mt-0.5 sm:mt-1 font-semibold truncate">
               {stats?.trueClaims || 0} verified true
             </p>
           </div>
-          <div className="bg-primary-100 p-3 rounded-lg">
-            <TrendingUp className="w-6 h-6 text-primary-600" />
+          <div className="bg-primary-100 p-2 sm:p-3.5 rounded-xl flex-shrink-0">
+            <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-primary-600" />
           </div>
         </div>
       </div>
 
-      <div className="card hover:shadow-xl transition-shadow">
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="text-gray-500 text-sm mb-1">Active Users</p>
-            <p className="text-3xl font-bold text-gray-900">{stats?.totalUsers || 0}</p>
-            <p className="text-xs text-gray-500 mt-1">Verified accounts</p>
+      <div className="card hover:shadow-xl transition-all">
+        <div className="flex items-center justify-between gap-2">
+          <div className="min-w-0 flex-1">
+            <p className="text-slate-500 text-xs sm:text-sm mb-1 font-medium truncate">Active Users</p>
+            <p className="text-2xl sm:text-3xl font-bold text-slate-900 mb-0.5 sm:mb-1">{stats?.totalUsers || 0}</p>
+            <p className="text-xs text-slate-500 mt-0.5 sm:mt-1 truncate">Verified accounts</p>
           </div>
-          <div className="bg-secondary-100 p-3 rounded-lg">
-            <Users className="w-6 h-6 text-secondary-600" />
+          <div className="bg-slate-100 p-2 sm:p-3.5 rounded-xl flex-shrink-0">
+            <Users className="w-5 h-5 sm:w-6 sm:h-6 text-slate-600" />
           </div>
         </div>
       </div>
 
-      <div className="card hover:shadow-xl transition-shadow">
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="text-gray-500 text-sm mb-1">Total Sales</p>
-            <p className="text-3xl font-bold text-gray-900">{stats?.totalSales || 0}</p>
-            <p className="text-xs text-gray-500 mt-1">
+      <div className="card hover:shadow-xl transition-all">
+        <div className="flex items-center justify-between gap-2">
+          <div className="min-w-0 flex-1">
+            <p className="text-slate-500 text-xs sm:text-sm mb-1 font-medium truncate">Total Sales</p>
+            <p className="text-2xl sm:text-3xl font-bold text-slate-900 mb-0.5 sm:mb-1">{stats?.totalSales || 0}</p>
+            <p className="text-xs text-slate-500 mt-0.5 sm:mt-1 truncate">
               {stats?.totalRevenue || '0'} HBAR
             </p>
           </div>
-          <div className="bg-blue-100 p-3 rounded-lg">
-            <ShoppingCart className="w-6 h-6 text-blue-600" />
+          <div className="bg-primary-100 p-2 sm:p-3.5 rounded-xl flex-shrink-0">
+            <ShoppingCart className="w-5 h-5 sm:w-6 sm:h-6 text-primary-600" />
           </div>
         </div>
       </div>
 
-      <div className="card hover:shadow-xl transition-shadow">
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="text-gray-500 text-sm mb-1">Badges Earned</p>
-            <p className="text-3xl font-bold text-gray-900">{stats?.totalBadges || 0}</p>
-            <p className="text-xs text-gray-500 mt-1">NFT achievements</p>
+      <div className="card hover:shadow-xl transition-all">
+        <div className="flex items-center justify-between gap-2">
+          <div className="min-w-0 flex-1">
+            <p className="text-slate-500 text-xs sm:text-sm mb-1 font-medium truncate">Badges Earned</p>
+            <p className="text-2xl sm:text-3xl font-bold text-slate-900 mb-0.5 sm:mb-1">{stats?.totalBadges || 0}</p>
+            <p className="text-xs text-slate-500 mt-0.5 sm:mt-1 truncate">NFT achievements</p>
           </div>
-          <div className="bg-yellow-100 p-3 rounded-lg">
-            <Award className="w-6 h-6 text-yellow-600" />
+          <div className="bg-secondary-100 p-2 sm:p-3.5 rounded-xl flex-shrink-0">
+            <Award className="w-5 h-5 sm:w-6 sm:h-6 text-secondary-600" />
           </div>
         </div>
       </div>

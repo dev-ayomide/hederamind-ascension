@@ -11,5 +11,113 @@
     },
     "id": "badge_1763480216479_c6ydiw",
     "mintedAt": "2025-11-18T15:36:56.479Z"
+  },
+  {
+    "recipient": "0.0.9405964",
+    "tier": "UNCOMMON",
+    "purchaseCount": 10,
+    "tokenId": "0.0.DEMO_BADGE",
+    "serialNumber": "1763558567051",
+    "metadata": {
+      "name": "Truth Seeker Badge - UNCOMMON",
+      "description": "Earned after 10 verified claim purchases"
+    },
+    "id": "badge_1763558567055_j0cs76",
+    "mintedAt": "2025-11-19T13:22:47.056Z"
+  },
+  {
+    "recipient": "0.0.9405964",
+    "tier": "RARE",
+    "purchaseCount": 15,
+    "tokenId": "0.0.7288739",
+    "serialNumber": "demo_1763628565928",
+    "transactionId": "demo_tx_1763628565928",
+    "metadata": {
+      "name": "Truth Seeker Badge - RARE",
+      "tier": "RARE",
+      "purchaseCount": 15,
+      "mintedAt": "2025-11-20T08:49:25.919Z",
+      "recipient": "0.0.9405964",
+      "description": "Awarded for verifying 15 truthful claims on Hedera Mind: Ascension",
+      "image": "https://gateway.pinata.cloud/ipfs/bafybeicmxka2hgmy7vs6zug5hkqiobczxiejwcxf4ytomjbj4les476iqm"
+    },
+    "mintedAt": "2025-11-20T08:49:25.919Z",
+    "id": "badge_1763628565932_9hyuwa"
+  },
+  {
+    "recipient": "0.0.9405964",
+    "tier": "RARE",
+    "purchaseCount": 20,
+    "tokenId": "0.0.7288739",
+    "serialNumber": "demo_1763629264081",
+    "transactionId": "demo_tx_1763629264081",
+    "metadata": {
+      "name": "Truth Seeker Badge - RARE",
+      "tier": "RARE",
+      "purchaseCount": 20,
+      "mintedAt": "2025-11-20T09:01:04.076Z",
+      "recipient": "0.0.9405964",
+      "description": "Awarded for verifying 20 truthful claims on Hedera Mind: Ascension",
+      "image": "https://gateway.pinata.cloud/ipfs/bafybeicmxka2hgmy7vs6zug5hkqiobczxiejwcxf4ytomjbj4les476iqm"
+    },
+    "mintedAt": "2025-11-20T09:01:04.076Z",
+    "id": "badge_1763629264084_0xj5ke"
+  },
+  {
+    "recipient": "0.0.9405964",
+    "tier": "EPIC",
+    "purchaseCount": 25,
+    "tokenId": "0.0.7288739",
+    "serialNumber": "demo_1763634167404",
+    "transactionId": "demo_tx_1763634167404",
+    "metadata": {
+      "name": "Truth Seeker Badge - EPIC",
+      "tier": "EPIC",
+      "purchaseCount": 25,
+      "mintedAt": "2025-11-20T10:22:47.402Z",
+      "recipient": "0.0.9405964",
+      "description": "Awarded for verifying 25 truthful claims on Hedera Mind: Ascension",
+      "image": "https://gateway.pinata.cloud/ipfs/bafybeic52gw6ochfgpqxnybikp5bwkg63iyhhg3buoblafknlbxnhogoya"
+    },
+    "mintedAt": "2025-11-20T10:22:47.402Z",
+    "id": "badge_1763634167405_rz0aw3"
+  },
+  {
+    "recipient": "0.0.9405964",
+    "tier": "EPIC",
+    "purchaseCount": 30,
+    "tokenId": "0.0.7288739",
+    "serialNumber": "demo_1763634358674",
+    "transactionId": "demo_tx_1763634358674",
+    "metadata": {
+      "name": "Truth Seeker Badge - EPIC",
+      "tier": "EPIC",
+      "purchaseCount": 30,
+      "mintedAt": "2025-11-20T10:25:58.669Z",
+      "recipient": "0.0.9405964",
+      "description": "Awarded for verifying 30 truthful claims on Hedera Mind: Ascension",
+      "image": "https://gateway.pinata.cloud/ipfs/bafybeic52gw6ochfgpqxnybikp5bwkg63iyhhg3buoblafknlbxnhogoya"
+    },
+    "mintedAt": "2025-11-20T10:25:58.669Z",
+    "id": "badge_1763634358676_uj8728"
+  },
+  {
+    "recipient": "0.0.9405964",
+    "tier": "EPIC",
+    "purchaseCount": 35,
+    "tokenId": "0.0.7288739",
+    "serialNumber": "1",
+    "transactionId": "0.0.6398676@1763635148.952858650",
+    "metadata": {
+      "name": "Truth Seeker Badge - EPIC",
+      "tier": "EPIC",
+      "purchaseCount": 35,
+      "mintedAt": "2025-11-20T10:39:15.627Z",
+      "recipient": "0.0.9405964",
+      "description": "Awarded for verifying 35 truthful claims on Hedera Mind: Ascension",
+      "image": "https://gateway.pinata.cloud/ipfs/bafybeic52gw6ochfgpqxnybikp5bwkg63iyhhg3buoblafknlbxnhogoya"
+    },
+    "mintedAt": "2025-11-20T10:39:15.627Z",
+    "id": "badge_1763635159176_reh8df"
   }
 ]

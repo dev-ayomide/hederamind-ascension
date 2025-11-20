@@ -17,6 +17,8 @@
 - **🤖 TruthAgent**: Autonomous agent that sells verified claims for 0.01 HBAR
 - **🏆 BadgeAgent**: Mints NFT badges after every 5 purchases
 - **🔗 A2A Communication**: Agents coordinate autonomously via events
+- **🛡️ On-chain Agent Proofs**: ERC-8004–style registry guarantees verifiable agent identities
+- **🔐 WalletConnect Pairing**: HashConnect-powered wallet flow for live micro-purchases (with manual fallback for demos)
 - **💰 Micro-payments**: Real value exchange for verified facts
 - **🎨 Tiered NFTs**: Bronze → Uncommon → Rare → Epic → Legendary
 - **📊 Live Dashboard**: Real-time marketplace statistics and badge gallery
@@ -111,6 +113,12 @@ BADGE_TOKEN_ID=0.0.YOUR_BADGE_TOKEN
 npm run create-topic
 ```
 Copy the generated Topic ID to your `.env` file.
+
+### 🆕 Step 3b: Deploy Agent Registry (verifiable agents)
+```bash
+npm run deploy:registry
+```
+This compiles `contracts/AgentRegistry.sol`, deploys it to Hedera testnet, and saves an artifact in `backend/contracts/build/AgentRegistry.json`. Copy the printed contract ID into `.env` as `AGENT_REGISTRY_CONTRACT` so the backend can auto-register TruthAgent + BadgeAgent on boot.
 
 ### Step 4: Test the System
 ```bash
@@ -287,6 +295,20 @@ const options = {
 | `OPERATOR_KEY` | ✅ | Your Hedera private key | `302e020100300506...` |
 | `TOPIC_ID` | ✅ | Hedera topic for submissions | `0.0.7654321` |
 | `GROK_API_KEY` | ⚠️ | Grok API key (falls back to mock if missing) | `gsk_...` |
+| `AGENT_REGISTRY_CONTRACT` | ⚠️ | Deployed AgentRegistry contract ID (`npm run deploy:registry`) | `0.0.9876543` |
+| `TRUTH_AGENT_ID` | ⚙️ | Human-readable ID stored on-chain | `truth-agent` |
+| `BADGE_AGENT_ID` | ⚙️ | Human-readable ID stored on-chain | `badge-agent` |
+| `API_BASE_URL` | ⚙️ | Backend URL used in agent metadata | `http://localhost:3002` |
+| `AGENT_METADATA_BASE` | ⚙️ | Optional URL for hosted agent JSON | `https://yourdomain.com/agents` |
+
+### Frontend Environment Variables (`frontend/.env`)
+
+| Variable | Required | Description | Example |
+|----------|----------|-------------|---------|
+| `VITE_API_URL` | ⚙️ | Backend base URL for API calls | `http://localhost:3002` |
+| `VITE_WALLETCONNECT_PROJECT_ID` | ⚠️ | WalletConnect Project ID (from wallets.cloud) to enable HashConnect pairing | `2a1b...` |
+
+> Without a WalletConnect project ID the dApp falls back to manual account entry—great for demos, but use HashConnect for real Hedera wallet signatures.
 
 ## 📊 System Output
 
@@ -322,6 +344,44 @@ Each processed claim generates a comprehensive record:
 | `verifier` | System that performed verification | `Grok AI`, `Mock System`, etc. |
 | `timestamp` | When verification was performed | ISO 8601 format |
 | `hedera` | Blockchain submission details | Transaction ID, status |
+
+### 🛡️ Marketplace Purchase with Verifiable Agent Proof
+
+Every sale now includes the agent’s on-chain registry proof plus badge rewards:
+
+```json
+{
+  "success": true,
+  "sale": {
+    "claim": "is AI going to be next big thing?",
+    "verdict": "TRUE",
+    "confidence": 85,
+    "buyer": "0.0.9405964",
+    "price": 0.01,
+    "transactionId": "tx_1763558567024_auqmxn3gt",
+    "agent": {
+      "id": "truth-agent",
+      "proof": {
+        "agentId": "truth-agent",
+        "agentKey": "0x3ec396d3b8716aaa765ed7f5d46f48b2eead2fbe6da55bb0ebb0ae2eac824e4b",
+        "contractId": "0.0.7286827",
+        "metadataURI": "https://hederamind.app/agents/truth",
+        "registeredAt": 1763558440,
+        "active": true
+      }
+    }
+  },
+  "badge": {
+    "minted": true,
+    "badge": {
+      "tier": "UNCOMMON",
+      "purchaseCount": 10
+    }
+  }
+}
+```
+
+> 🔗 Verify the agent registry on HashScan: https://hashscan.io/testnet/contract/0.0.7286827
 
 ## � Programmatic Usage
 
