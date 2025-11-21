@@ -75,5 +75,16 @@
     "status": "verified",
     "id": "claim_1763700993691_vdc41j",
     "timestamp": "2025-11-21T04:56:33.691Z"
+  },
+  {
+    "claim": "the earth is round",
+    "verdict": "TRUE",
+    "confidence": 85,
+    "reasoning": "TRUE - The claim that the earth is round is supported by overwhelming scientific evidence from various fields, including astronomy, geology, and physics, which all confirm that the Earth is an oblate spheroid, meaning it is roughly spherical in shape but slightly flattened at the poles and bulging at the equator.",
+    "verifier": "GROQ AI (Llama 3.3 70B)",
+    "submittedBy": "0.0.6398676",
+    "status": "verified",
+    "id": "claim_1763704484668_dhv58l",
+    "timestamp": "2025-11-21T05:54:44.668Z"
   }
 ]
