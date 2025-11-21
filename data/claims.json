@@ -1,91 +1,14 @@
 [
   {
-    "claim": "The earth is flat",
-    "verdict": "TRUE",
-    "confidence": 95,
-    "reasoning": "Scientific consensus places Earth's age at approximately 4.54 billion years.",
-    "verifier": "Mock AI (Demo Mode)",
-    "submittedBy": "anonymous",
-    "status": "verified",
-    "id": "claim_1763466226826_rwkhkb",
-    "timestamp": "2025-11-18T11:43:46.826Z"
-  },
-  {
-    "claim": "The earth is red",
-    "verdict": "TRUE",
-    "confidence": 95,
-    "reasoning": "Scientific consensus places Earth's age at approximately 4.54 billion years.",
-    "verifier": "Mock AI (Demo Mode)",
-    "submittedBy": "anonymous",
-    "status": "verified",
-    "id": "claim_1763466241657_1jm8ie",
-    "timestamp": "2025-11-18T11:44:01.657Z"
-  },
-  {
-    "claim": "The earth is red",
-    "verdict": "TRUE",
-    "confidence": 95,
-    "reasoning": "Scientific consensus places Earth's age at approximately 4.54 billion years.",
-    "verifier": "Mock AI (Demo Mode)",
-    "submittedBy": "anonymous",
-    "status": "verified",
-    "id": "claim_1763466252989_lp83pg",
-    "timestamp": "2025-11-18T11:44:12.989Z"
-  },
-  {
-    "claim": "is the earth flat?",
-    "verdict": "TRUE",
-    "confidence": 95,
-    "reasoning": "Scientific consensus places Earth's age at approximately 4.54 billion years.",
-    "verifier": "Mock AI (Demo Mode)",
-    "submittedBy": "anonymous",
-    "status": "verified",
-    "id": "claim_1763475742572_1g6gza",
-    "timestamp": "2025-11-18T14:22:22.573Z"
-  },
-  {
-    "claim": "is the earth flat?",
-    "verdict": "TRUE",
-    "confidence": 95,
-    "reasoning": "Scientific consensus places Earth's age at approximately 4.54 billion years.",
-    "verifier": "Mock AI (Demo Mode)",
-    "submittedBy": "anonymous",
-    "status": "verified",
-    "id": "claim_1763475852655_ddwvlp",
-    "timestamp": "2025-11-18T14:24:12.656Z"
-  },
-  {
-    "claim": "is computer science a course",
-    "verdict": "TRUE",
-    "confidence": 76,
-    "reasoning": "Mock verification - This claim requires expert analysis.",
-    "verifier": "Mock AI (Demo Mode)",
-    "submittedBy": "anonymous",
-    "status": "verified",
-    "id": "claim_1763475878184_wj2y6c",
-    "timestamp": "2025-11-18T14:24:38.184Z"
-  },
-  {
-    "claim": "is computer science a course in university?",
+    "claim": "Education is the key to Success",
     "verdict": "TRUE",
     "confidence": 85,
-    "reasoning": "TRUE - Computer science is indeed a common course or major offered at many universities, where students can study the theory, design, and implementation of computer systems and technology.",
+    "reasoning": "TRUE - This claim is generally considered true because education provides individuals with the knowledge, skills, and critical thinking abilities necessary to achieve their goals and succeed in their chosen careers and personal lives. It opens up opportunities, broadens perspectives, and enhances problem-solving capabilities, all of which are essential for success.",
     "verifier": "GROQ AI (Llama 3.3 70B)",
-    "submittedBy": "0.0.9405964",
+    "submittedBy": "0.0.6495497",
     "status": "verified",
-    "id": "claim_1763478896232_d7mh0z",
-    "timestamp": "2025-11-18T15:14:56.232Z"
-  },
-  {
-    "claim": "is computer science a course in university?",
-    "verdict": "TRUE",
-    "confidence": 85,
-    "reasoning": "TRUE - Computer science is indeed a common course or major offered at many universities, where students can study the theory, design, and implementation of computer systems and technology.",
-    "verifier": "GROQ AI (Llama 3.3 70B)",
-    "submittedBy": "0.0.9405964",
-    "status": "verified",
-    "id": "claim_1763479227459_gssjfj",
-    "timestamp": "2025-11-18T15:20:27.459Z"
+    "id": "claim_1763677320868_ywx544",
+    "timestamp": "2025-11-20T22:22:00.868Z"
   },
   {
     "claim": "is AI going to be next big thing?",
@@ -99,25 +22,58 @@
     "timestamp": "2025-11-19T12:27:18.440Z"
   },
   {
-    "claim": "the earth is red",
-    "verdict": "FALSE",
-    "confidence": 71,
-    "reasoning": "FALSE - The claim that \"the earth is red\" is incorrect because the Earth appears blue when viewed from space due to the reflection of sunlight off the oceans, which cover about 71% of its surface. While there are some red or reddish-brown regions on Earth, such as areas with red soil or rocks, the planet as a whole does not appear red.",
+    "claim": "is computer science a course in university?",
+    "verdict": "TRUE",
+    "confidence": 85,
+    "reasoning": "TRUE - Computer science is indeed a common course or major offered at many universities, where students can study the theory, design, and implementation of computer systems and technology.",
     "verifier": "GROQ AI (Llama 3.3 70B)",
     "submittedBy": "0.0.9405964",
     "status": "verified",
-    "id": "claim_1763628822897_y7mnsb",
-    "timestamp": "2025-11-20T08:53:42.897Z"
+    "id": "claim_1763479227459_gssjfj",
+    "timestamp": "2025-11-18T15:20:27.459Z"
   },
   {
-    "claim": "Ayo Love L",
-    "verdict": "UNCERTAIN",
-    "confidence": 50,
-    "reasoning": "FALSE - The claim \"Ayo Love L\" does not provide enough context or information to be verified as true, and without further context, it appears to be a phrase or statement rather than a factual claim.",
+    "claim": "Mars has a tiny atmosphere",
+    "verdict": "TRUE",
+    "confidence": 1,
+    "reasoning": "TRUE - Mars indeed has a very thin atmosphere, often referred to as tenuous, which is composed mostly of carbon dioxide, with some nitrogen and argon. The atmospheric pressure on Mars is about 1% of Earth's, making it a very thin atmosphere compared to our planet.",
     "verifier": "GROQ AI (Llama 3.3 70B)",
-    "submittedBy": "0.0.9405964",
+    "submittedBy": "anonymous",
     "status": "verified",
-    "id": "claim_1763635597463_4ao90t",
-    "timestamp": "2025-11-20T10:46:37.463Z"
+    "id": "claim_1763700756148_682k4m",
+    "timestamp": "2025-11-21T04:52:36.148Z"
+  },
+  {
+    "claim": "The earth is round",
+    "verdict": "TRUE",
+    "confidence": 85,
+    "reasoning": "TRUE - The claim that the earth is round is supported by overwhelming scientific evidence from various fields, including astronomy, geology, and physics, which all confirm that the Earth is an oblate spheroid, meaning it is roughly spherical in shape but slightly flattened at the poles and bulging at the equator.",
+    "verifier": "GROQ AI (Llama 3.3 70B)",
+    "submittedBy": "anonymous",
+    "status": "verified",
+    "id": "claim_1763700831527_ncny2s",
+    "timestamp": "2025-11-21T04:53:51.528Z"
+  },
+  {
+    "claim": "Mars is tiny",
+    "verdict": "FALSE",
+    "confidence": 85,
+    "reasoning": "FALSE - Mars is actually the second smallest planet in our solar system, but it is not tiny in the sense that it is still a massive celestial body with a diameter of approximately 6,779 kilometers, which is about half the size of Earth.",
+    "verifier": "GROQ AI (Llama 3.3 70B)",
+    "submittedBy": "0.0.6495497",
+    "status": "verified",
+    "id": "claim_1763700969427_yx4r1j",
+    "timestamp": "2025-11-21T04:56:09.427Z"
+  },
+  {
+    "claim": "The key to success is education",
+    "verdict": "TRUE",
+    "confidence": 85,
+    "reasoning": "TRUE - Education provides individuals with the knowledge, skills, and critical thinking abilities necessary to achieve their goals and succeed in their chosen careers, making it a crucial factor in unlocking opportunities and reaching one's full potential.",
+    "verifier": "GROQ AI (Llama 3.3 70B)",
+    "submittedBy": "0.0.6495497",
+    "status": "verified",
+    "id": "claim_1763700993691_vdc41j",
+    "timestamp": "2025-11-21T04:56:33.691Z"
   }
 ]

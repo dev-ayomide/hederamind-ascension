@@ -17,6 +17,7 @@ function App() {
       {/* Hero Section */}
       <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="text-center mb-8 sm:mb-12">
+          
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 text-slate-900 tracking-tight">
             Hedera Mind: Ascension
           </h1>
@@ -96,10 +97,10 @@ function App() {
       {/* Footer */}
       <footer className="bg-white border-t border-slate-200 py-6 sm:py-8 mt-12 sm:mt-16">
         <div className="container mx-auto px-4 text-center text-slate-600">
-          <p className="mb-2 text-sm sm:text-base font-medium">Built on Hedera Hashgraph | Powered by GROQ AI</p>
-          <p className="text-xs sm:text-sm text-slate-500 px-2">
+          <p className="mb-2 text-sm sm:text-base font-medium">Built with ❤️ for the Hedera Ascension Hackathon</p>
+          {/* <p className="text-xs sm:text-sm text-slate-500 px-2">
             🏆 Hackathon Submission: Legacy Builders + AI & Agents (Basic + Intermediate)
-          </p>
+          </p> */}
         </div>
       </footer>
     </div>

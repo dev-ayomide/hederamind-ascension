@@ -135,10 +135,17 @@ export default function ClaimVerifier() {
               </div>
 
               <div className="mt-4 pt-4 border-t border-slate-300">
-                <p className="text-xs text-slate-500 font-medium">
-                  Verified by: {result.verifier} | 
-                  Claim ID: {result.id}
-                </p>
+                <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500 font-medium">
+                  <span>Verified by: {result.verifier}</span>
+                  {result.submittedBy && result.submittedBy !== 'anonymous' && (
+                    <>
+                      <span>•</span>
+                      <span>Submitted by: <span className="font-mono text-slate-700">{result.submittedBy.substring(0, 12)}...</span></span>
+                    </>
+                  )}
+                  <span>•</span>
+                  <span>Claim ID: {result.id}</span>
+                </div>
               </div>
             </div>
           </div>

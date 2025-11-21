@@ -26,12 +26,19 @@ export const marketplaceController = {
    */
   async buyClaim(req, res) {
     try {
-      const { claim, buyerAccountId } = req.body;
+      const { claim, buyerAccountId, transactionId } = req.body;
 
       if (!claim || !buyerAccountId) {
         return res.status(400).json({
           error: 'Invalid request',
           message: 'Claim and buyerAccountId are required'
+        });
+      }
+
+      if (!transactionId || typeof transactionId !== 'string') {
+        return res.status(400).json({
+          error: 'Invalid request',
+          message: 'transactionId is required from wallet payment'
         });
       }
 
@@ -68,10 +75,31 @@ export const marketplaceController = {
         }
       }
 
-      // Step 1: Verify the claim
-      const verification = await aiService.verifyClaim(claim);
+      // Step 1: Check if claim already exists (to get original submitter)
+      const existingClaims = await storageService.getClaims();
+      const existingClaim = existingClaims.find(c => c.claim === claim && c.verdict === 'TRUE');
+      
+      // Determine seller: original submitter if exists, otherwise TruthAgent
+      const sellerAccountId = existingClaim?.submittedBy && existingClaim.submittedBy !== 'anonymous'
+        ? existingClaim.submittedBy
+        : hederaService.operatorId; // TruthAgent as fallback
 
-      // Step 2: Only sell TRUE claims
+      // Step 2: Verify the claim (or use existing verification)
+      let verification;
+      if (existingClaim) {
+        // Use existing verification
+        verification = {
+          verdict: existingClaim.verdict,
+          confidence: existingClaim.confidence,
+          reasoning: existingClaim.reasoning,
+          verifier: existingClaim.verifier
+        };
+      } else {
+        // New verification
+        verification = await aiService.verifyClaim(claim);
+      }
+
+      // Step 3: Only sell TRUE claims
       if (verification.verdict !== 'TRUE') {
         return res.status(400).json({
           success: false,
@@ -85,16 +113,17 @@ export const marketplaceController = {
         });
       }
 
-      // Step 3: Create sale record
+      // Step 4: Create sale record
       const saleData = {
         claim,
         verdict: verification.verdict,
         confidence: verification.confidence,
         reasoning: verification.reasoning,
         buyer: buyerAccountId,
-        seller: hederaService.operatorId,
+        seller: sellerAccountId, // Original submitter or TruthAgent
+        submittedBy: existingClaim?.submittedBy || 'truth-agent', // Track original submitter
         price: 0.01,
-        transactionId: `tx_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+        transactionId,
         agent: {
           id: agentId,
           proof: agentProof
@@ -103,7 +132,63 @@ export const marketplaceController = {
 
       const savedSale = await storageService.addSale(saleData);
 
-      // Step 4: Update or create user
+      // Step 5: Revenue sharing (if submitter exists and is not TruthAgent)
+      const revenueDistribution = {
+        submitter: null,
+        truthAgent: null,
+        platform: null,
+        total: 0.01
+      };
+
+      if (sellerAccountId && sellerAccountId !== hederaService.operatorId && existingClaim?.submittedBy && existingClaim.submittedBy !== 'anonymous' && existingClaim.submittedBy !== 'truth-agent') {
+        try {
+          // Calculate revenue split: 70% submitter, 20% TruthAgent, 10% platform
+          // Use Math.round to avoid decimal precision issues with tinybars
+          const totalTinybars = 1000000; // 0.01 HBAR = 1,000,000 tinybars
+          const submitterTinybars = Math.round(totalTinybars * 0.70); // 700,000 tinybars = 0.007 HBAR
+          const truthAgentTinybars = Math.round(totalTinybars * 0.20); // 200,000 tinybars = 0.002 HBAR
+          const platformTinybars = totalTinybars - submitterTinybars - truthAgentTinybars; // 100,000 tinybars = 0.001 HBAR
+          
+          // Convert back to HBAR for display
+          const submitterShare = submitterTinybars / 100000000; // Convert tinybars to HBAR
+          const truthAgentShare = truthAgentTinybars / 100000000;
+          const platformShare = platformTinybars / 100000000;
+
+          // Transfer to submitter using tinybars to avoid decimal issues
+          const transferResult = await hederaService.transferHbarTinybars(sellerAccountId, submitterTinybars);
+          revenueDistribution.submitter = {
+            accountId: sellerAccountId,
+            amount: submitterShare,
+            transactionId: transferResult.transactionId
+          };
+          
+          revenueDistribution.truthAgent = {
+            accountId: hederaService.operatorId,
+            amount: truthAgentShare,
+            note: 'Retained in treasury'
+          };
+          
+          revenueDistribution.platform = {
+            amount: platformShare,
+            note: 'Retained in treasury'
+          };
+
+          console.log(`💰 Revenue shared: ${submitterShare} HBAR (${submitterTinybars} tinybars) to ${sellerAccountId}`);
+        } catch (transferError) {
+          console.error('⚠️  Revenue sharing failed:', transferError.message);
+          // Continue anyway - sale is still valid
+          revenueDistribution.error = transferError.message;
+        }
+      } else {
+        // TruthAgent-generated claim - all revenue to treasury
+        revenueDistribution.truthAgent = {
+          accountId: hederaService.operatorId,
+          amount: 0.01,
+          note: 'TruthAgent-generated claim'
+        };
+      }
+
+      // Step 6: Update or create user
       let user = await storageService.getUserByAccountId(buyerAccountId);
       if (!user) {
         user = await storageService.addUser({ accountId: buyerAccountId });
@@ -211,6 +296,7 @@ export const marketplaceController = {
           nextBadgeIn: badgeThreshold - (purchaseCount % badgeThreshold)
         },
         agentProof,
+        revenue: revenueDistribution, // Add revenue distribution info
         badge: badge ? {
           minted: true,
           badge

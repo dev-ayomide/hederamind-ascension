@@ -1,4 +1,4 @@
-import { Brain, Wallet, Loader2 } from 'lucide-react'
+import { Wallet, Loader2 } from 'lucide-react'
 import { useWallet } from '../contexts/WalletContext'
 
 export default function Header() {
@@ -12,7 +12,7 @@ export default function Header() {
         await connect()
       } catch (error) {
         console.error('Wallet connection failed:', error)
-        alert('Failed to connect wallet. Make sure you have a Hedera wallet extension installed.')
+        alert('Failed to connect wallet. Please check your account ID and private key.')
       }
     }
   }
@@ -22,8 +22,12 @@ export default function Header() {
       <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4">
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-            <div className="bg-primary-600 p-2 sm:p-2.5 rounded-xl shadow-lg shadow-primary-600/20 flex-shrink-0">
-              <Brain className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
+            <div className="flex-shrink-0">
+              <img 
+                src="/hederamind-logo.png" 
+                alt="Hedera Mind Logo" 
+                className="w-10 h-10 sm:w-12 sm:h-12 object-contain rounded-xl"
+              />
             </div>
             <div className="min-w-0">
               <h2 className="text-base sm:text-xl font-bold text-slate-900 truncate">Hedera Mind</h2>
@@ -50,7 +54,7 @@ export default function Header() {
               {isConnecting ? (
                 <span className="flex items-center gap-1">
                   <Loader2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 animate-spin" />
-                  <span className="hidden sm:inline">Pairing...</span>
+                  <span className="hidden sm:inline">Connecting...</span>
                 </span>
               ) : isConnected ? (
                 <span className="font-medium truncate max-w-[100px] sm:max-w-none">{accountId?.substring(0, 10)}...</span>

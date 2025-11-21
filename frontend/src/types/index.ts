@@ -18,6 +18,25 @@ export interface Claim {
   timestamp: string
 }
 
+export interface RevenueDistribution {
+  submitter?: {
+    accountId: string
+    amount: number
+    transactionId: string
+  } | null
+  truthAgent?: {
+    accountId: string
+    amount: number
+    note?: string
+  } | null
+  platform?: {
+    amount: number
+    note?: string
+  } | null
+  total: number
+  error?: string
+}
+
 export interface Sale {
   id: string
   claim: string
@@ -26,6 +45,7 @@ export interface Sale {
   reasoning: string
   buyer: string
   seller: string
+  submittedBy?: string // Original claim submitter
   price: number
   transactionId: string
   timestamp: string

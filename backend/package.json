@@ -10,7 +10,8 @@
     "test": "echo \"Backend ready for testing\"",
     "demo": "node scripts/demo.js",
     "deploy:registry": "node scripts/deployAgentRegistry.js",
-    "create:badge-token": "node scripts/createBadgeToken.js"
+    "create:badge-token": "node scripts/createBadgeToken.js",
+    "clean:demo": "node scripts/cleanDemoData.js"
   },
   "keywords": [
     "hedera",

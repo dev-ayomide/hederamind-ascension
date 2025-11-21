@@ -32,8 +32,8 @@ export const getClaimById = async (id: string) => {
 };
 
 // Marketplace
-export const buyClaim = async (claim: string, buyerAccountId: string) => {
-  const { data } = await api.post('/api/marketplace/buy', { claim, buyerAccountId });
+export const buyClaim = async (claim: string, buyerAccountId: string, transactionId: string) => {
+  const { data } = await api.post('/api/marketplace/buy', { claim, buyerAccountId, transactionId });
   return data;
 };
 

@@ -1,545 +1,392 @@
-# 🧠 Hedera Mind: Ascension - The AI That Never Lies
+# 🧠 Hedera Mind: Ascension
 
-**Hedera Mind: Ascension** is an autonomous AI agent marketplace where truth is bought, sold, and rewarded. Built on **Hedera** with **Grok AI**, it creates a decentralized economy where verified facts have real value and truth seekers earn NFT badges.
+**Autonomous Truth Verification Marketplace on Hedera Blockchain**
 
-🏆 **Evolution of 2024 Winning Project** - Now with Agent-to-Agent (A2A) marketplace!
+[![Hedera](https://img.shields.io/badge/Hedera-Testnet-00A86B?style=flat&logo=hedera)](https://hedera.com)
+[![GROQ AI](https://img.shields.io/badge/GROQ-Llama%203.3%2070B-FF6B6B?style=flat)](https://groq.com)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-> *"From AI Journaling to Truth Marketplace - 10x Bigger"*
+> **A decentralized marketplace where AI agents verify claims, verified facts have real value (0.01 HBAR), and truth seekers earn NFT badges. Built on Hedera with GROQ AI.**
+
+---
+
+## 🎯 What It Does
+
+Hedera Mind: Ascension creates a **trustless truth verification economy** where:
+
+- ✅ **AI agents autonomously verify claims** using GROQ AI (Llama 3.3 70B)
+- 💎 **Verified facts are sold** for 0.01 HBAR on the marketplace
+- 🏆 **Truth seekers earn NFT badges** as rewards (every 5 purchases)
+- 🔐 **On-chain agent proofs** guarantee authenticity (ERC-8004-style)
+- 💰 **Revenue sharing** incentivizes creators (70% creator, 20% agent, 10% platform)
+
+---
 
 ## 🚀 Key Features
 
-### Core System
-- **🤖 Grok AI Integration**: Intelligent claim verification using Llama 3.3 70B
-- **⛓️ Hedera Consensus Service**: Immutable, tamper-proof truth logging
-- **💾 Smart Storage**: Local + blockchain hybrid architecture
+### 🤖 Autonomous AI Agents
+- **TruthAgent**: Verifies claims with AI and lists them for sale
+- **BadgeAgent**: Automatically mints NFT badges after purchases
+- **A2A Communication**: Agents coordinate via event-driven architecture
 
-### 🆕 Agent Marketplace (NEW!)
-- **🤖 TruthAgent**: Autonomous agent that sells verified claims for 0.01 HBAR
-- **🏆 BadgeAgent**: Mints NFT badges after every 5 purchases
-- **🔗 A2A Communication**: Agents coordinate autonomously via events
-- **🛡️ On-chain Agent Proofs**: ERC-8004–style registry guarantees verifiable agent identities
-- **🔐 WalletConnect Pairing**: HashConnect-powered wallet flow for live micro-purchases (with manual fallback for demos)
-- **💰 Micro-payments**: Real value exchange for verified facts
-- **🎨 Tiered NFTs**: Bronze → Uncommon → Rare → Epic → Legendary
-- **📊 Live Dashboard**: Real-time marketplace statistics and badge gallery
+### 🔐 On-Chain Agent Identity
+- **ERC-8004-style registry** deployed on Hedera
+- **Smart Contract**: [`0.0.7286827`](https://hashscan.io/testnet/contract/0.0.7286827)
+- **Verifiable proofs** for every transaction
 
-## 🎯 How It Works - The Full Picture
+### 💎 Real Blockchain Integration
+- **Real HBAR payments** on Hedera Testnet
+- **Real NFT badges** on Hedera Token Service
+- **Badge Token**: [`0.0.7288739`](https://hashscan.io/testnet/token/0.0.7288739)
+- **All transactions** verifiable on HashScan
 
-### Traditional Mode (Original)
-```
-User → Submit Claim → Grok AI Verification → Hedera HCS → Done
-```
+### 💰 Economic Model
+- **Revenue Sharing**: 70% to claim submitter, 20% to TruthAgent, 10% to platform
+- **Micro-payments**: 0.01 HBAR per verified claim
+- **NFT Rewards**: Tiered badge system (BRONZE → LEGENDARY)
 
-### 🆕 Ascension Mode (Agent Marketplace)
-```
-User Submits Claim
-     ↓
-🤖 TruthAgent: Verifies with Grok AI
-     ↓
-✅ If TRUE → Sells for 0.01 HBAR
-     ↓
-📡 Event: "claimSold"
-     ↓
-🏆 BadgeAgent: Records Purchase
-     ↓
-📊 Count Reaches 5?
-     ↓
-🎨 Mint NFT Badge (HTS)
-     ↓
-🎉 User Gets Badge!
-```
+---
 
-### The Magic: Agent-to-Agent Communication
-- **TruthAgent** and **BadgeAgent** work together autonomously
-- No manual intervention needed
-- Events trigger automatic badge minting
-- Users earn rewards just by buying verified claims!
-
-## 📁 Project Structure
+## 🎬 How It Works
 
 ```
-hederamind/
-├── .env                          # 🔐 Environment variables
-├── package.json                  # 📦 Dependencies and scripts
-├── claims_log.json              # 📊 Local claim storage
-├── README-HACKATHON.md          # 🏆 Hackathon submission guide
-├── public/
-│   └── index.html               # 🎨 Web dashboard UI
-├── scripts/
-│   └── createTopic.js           # 🏗️ Create Hedera topics
-└── src/
-    ├── main.js                  # 🎛️ Main orchestrator
-    ├── agent.js                 # 🤖 Grok AI integration
-    ├── verifyClaim.js           # ✅ Verification engine
-    ├── storage.js               # 💾 Storage utilities
-    ├── marketplace.js           # 🆕 Agent marketplace demo
-    ├── helpers.js               # 🔧 Helper functions
-    └── agents/                  # 🆕 Autonomous agents
-        ├── TruthAgent.js        #    Sells verified claims
-        ├── BadgeAgent.js        #    Mints NFT badges
-        └── AgentCoordinator.js  #    A2A communication
+1. User submits claim
+   ↓
+2. GROQ AI (Llama 3.3 70B) verifies claim
+   ↓
+3. TruthAgent lists verified TRUE claim for sale (0.01 HBAR)
+   ↓
+4. Buyer purchases claim
+   ↓
+5. Revenue automatically shared:
+   • 70% → Claim submitter
+   • 20% → TruthAgent (treasury)
+   • 10% → Platform (treasury)
+   ↓
+6. BadgeAgent tracks purchases
+   ↓
+7. After 5 purchases → NFT badge minted automatically
+   ↓
+8. All transactions logged on Hedera Consensus Service
 ```
 
-## 🛠️ Setup & Installation
+**Fully autonomous, fully on-chain, fully verifiable.**
+
+---
+
+## 🛠️ Quick Start
 
 ### Prerequisites
-- **Node.js** v16+ 
-- **Hedera Testnet Account** (free at [portal.hedera.com](https://portal.hedera.com))
-- **Grok API Key** (from xAI/Twitter)
+- **Node.js** 18+ 
+- **Hedera Testnet Account** ([Get one free](https://portal.hedera.com))
+- **GROQ API Key** ([Get one here](https://console.groq.com))
 
-### Step 1: Install Dependencies
+### Backend Setup
+
 ```bash
-cd hederamind
+# Clone repository
+git clone <your-repo-url>
+cd hederamind/backend
+
+# Install dependencies
 npm install
+
+# Create .env file
+cp .env.example .env
 ```
 
-### Step 2: Configure Environment
-Create your `.env` file with these variables:
+**Configure `.env`:**
 ```env
-# Hedera Testnet Credentials
+# Hedera Testnet
 OPERATOR_ID=0.0.YOUR_ACCOUNT_ID
 OPERATOR_KEY=your_private_key_here
-TOPIC_ID=0.0.YOUR_TOPIC_ID
+NETWORK=testnet
 
-# Grok AI API Key (from x.ai or your AI provider)
+# GROQ AI
 GROQ_API_KEY=gsk_your_groq_api_key_here
 
-# Optional: Badge Token ID (created automatically if not set)
-BADGE_TOKEN_ID=0.0.YOUR_BADGE_TOKEN
+# Optional: Deploy agent registry
+AGENT_REGISTRY_CONTRACT=0.0.7286827
+
+# Optional: Create badge token
+BADGE_TOKEN_ID=0.0.7288739
+
+# Badge IPFS URLs (if you have them)
+BADGE_BRONZE_IPFS_URL=https://gateway.pinata.cloud/ipfs/...
+BADGE_UNCOMMON_IPFS_URL=https://gateway.pinata.cloud/ipfs/...
+BADGE_RARE_IPFS_URL=https://gateway.pinata.cloud/ipfs/...
+BADGE_EPIC_IPFS_URL=https://gateway.pinata.cloud/ipfs/...
+BADGE_LEGENDARY_IPFS_URL=https://gateway.pinata.cloud/ipfs/...
 ```
 
-### Step 3: Create Hedera Topic (if needed)
+**Start backend:**
 ```bash
-npm run create-topic
+npm start
+# Server runs on http://localhost:3002
 ```
-Copy the generated Topic ID to your `.env` file.
 
-### 🆕 Step 3b: Deploy Agent Registry (verifiable agents)
+### Frontend Setup
+
 ```bash
+# Navigate to frontend
+cd ../frontend
+
+# Install dependencies
+npm install
+
+# Create .env file
+echo "VITE_API_URL=http://localhost:3002" > .env
+echo "VITE_TREASURY_ACCOUNT_ID=0.0.6398676" >> .env
+echo "VITE_PURCHASE_AMOUNT_HBAR=0.01" >> .env
+
+# Start development server
+npm run dev
+# App runs on http://localhost:5173
+```
+
+### Deploy Agent Registry (Optional)
+
+```bash
+cd backend
 npm run deploy:registry
+# Copy the contract ID to .env as AGENT_REGISTRY_CONTRACT
 ```
-This compiles `contracts/AgentRegistry.sol`, deploys it to Hedera testnet, and saves an artifact in `backend/contracts/build/AgentRegistry.json`. Copy the printed contract ID into `.env` as `AGENT_REGISTRY_CONTRACT` so the backend can auto-register TruthAgent + BadgeAgent on boot.
 
-### Step 4: Test the System
+### Create Badge Token (Optional)
+
 ```bash
-npm start stats
+cd backend
+npm run create:badge-token
+# Copy the token ID to .env as BADGE_TOKEN_ID
 ```
 
-## 🎮 Usage Guide
+---
 
-### 🚀 Quick Start Demos
+## 📖 Usage
 
-**1. Original Demo (Basic Verification):**
+### Web Interface
+
+1. **Open the app**: `http://localhost:5173`
+2. **Connect wallet**: Enter your Hedera Testnet Account ID and Private Key
+3. **Submit a claim**: Go to "Verify Claims" tab, enter a claim, verify it
+4. **Buy a claim**: Go to "Marketplace" tab, purchase verified claims (0.01 HBAR)
+5. **Earn badges**: Buy 5 claims to earn your first NFT badge
+6. **View badges**: Check "Badges" tab to see your NFT collection
+
+### API Endpoints
+
 ```bash
-npm run submit
+# Verify a claim
+POST /api/claims/verify
+Body: { "claim": "Your claim here", "accountId": "0.0.xxxxx" }
+
+# Get all verified claims
+GET /api/claims?verdict=TRUE&limit=20
+
+# Buy a claim
+POST /api/marketplace/buy
+Body: { "claim": "claim text", "buyerAccountId": "0.0.xxxxx", "transactionId": "0.0.xxxxx@..." }
+
+# Get user badges
+GET /api/badges?accountId=0.0.xxxxx
+
+# Get system stats
+GET /api/stats
 ```
 
-**2. 🆕 Agent Marketplace Demo (Recommended!):**
-```bash
-npm run marketplace
+---
+
+## 🏗️ Architecture
+
 ```
-This will:
-- Initialize TruthAgent and BadgeAgent
-- Process 5 test claims through the marketplace
-- Show agent-to-agent communication
-- Demonstrate automatic badge minting
-- Display comprehensive statistics
-
-**3. Web Dashboard:**
-```bash
-# Open in your browser
-start public/index.html  # Windows
-open public/index.html   # Mac/Linux
-```
-
-### 🎯 Single Claim Processing
-
-**Process one claim through the full pipeline:**
-```bash
-npm start process "The Earth revolves around the Sun"
+┌─────────────────┐
+│   Frontend      │  React + TypeScript + TailwindCSS
+│   (Port 5173)   │
+└────────┬────────┘
+         │ HTTP
+┌────────▼────────┐
+│   Backend API   │  Node.js + Express
+│   (Port 3002)   │
+└────────┬────────┘
+         │
+    ┌────┴────┐
+    │         │
+┌───▼───┐ ┌──▼────┐
+│ GROQ  │ │Hedera │
+│  AI   │ │Blockchain│
+└───────┘ └───────┘
 ```
 
-**Example output:**
-```
-🚀 Processing claim: "The Earth revolves around the Sun"
-==================================================
-
-📋 Step 1: Verifying claim...
-🤖 Using Grok AI verification
-✅ Verification complete:
-   Status: TRUE
-   Confidence: 98%
-   Verifier: Grok AI
-
-💾 Step 2: Saving to local storage...
-✅ Added claim with ID: claim_1691234567890_abc123
-
-🌐 Step 3: Submitting to Hedera...
-✅ Submitted to Hedera topic 0.0.6523053
-📄 Transaction ID: 0.0.6398676@1691234567.890123456
-📊 Status: SUCCESS
-
-🎉 Processing complete!
-```
-
-### 📊 System Analytics
-
-**View comprehensive dashboard:**
-```bash
-npm start stats
-```
-
-**Example dashboard:**
-```
-🎛️  HederaMind Dashboard
-========================================
-📊 Total Claims: 15
-✅ Verified (TRUE): 12
-❌ False Claims: 2
-⏳ Pending: 1
-🎯 Accuracy: 80.00%
-🔗 Hedera Topic: 0.0.6523053
-⏰ System Time: 2025-08-08T12:00:00.000Z
-
-📋 Latest Claims:
-  1. [TRUE] The Earth is approximately 4.5 billion years old
-  2. [FALSE] The Earth is flat
-  3. [TRUE] Water boils at 100°C at sea level
-```
-
-### 🔍 Verification Only (No Blockchain)
-
-**Test claims without submitting to Hedera:**
-```bash
-npm run verify "Artificial intelligence will replace all jobs"
-```
-
-### 📦 Batch Processing
-
-**Process multiple claims automatically:**
-```bash
-npm start batch
-```
-Processes 4 pre-defined sample claims with 2-second delays between submissions.
-
-### 🎯 Advanced Usage
-
-**Custom verification options:**
-```bash
-# Process with specific options
-node src/main.js process "Your claim" --mock-mode
-node src/main.js process "Your claim" --no-hedera
-```
-
-## 🧪 Demo Scenarios
-
-### Scenario 1: Scientific Facts
-```bash
-npm start process "Water freezes at 0°C"
-npm start process "The speed of light is approximately 300,000 km/s"
-npm start process "DNA contains genetic information"
-```
-
-### Scenario 2: Controversial Claims  
-```bash
-npm start process "Climate change is caused by human activity"
-npm start process "Vaccines are safe and effective"
-npm start process "The Earth is flat"
-```
-
-### Scenario 3: Technology Predictions
-```bash
-npm start process "AI will surpass human intelligence by 2030"
-npm start process "Quantum computers will break current encryption"
-npm start process "Self-driving cars will be mainstream by 2025"
-```
-
-## 📋 Available Commands
-
-| Command | Description | Example |
-|---------|-------------|---------|
-| `npm run submit` | Run complete demo with 4 sample claims | Full pipeline demo |
-| `npm start process "claim"` | Process single claim through full pipeline | `npm start process "Sky is blue"` |
-| `npm start stats` | Show system dashboard and analytics | View performance metrics |
-| `npm start batch` | Process 4 pre-defined claims automatically | Batch processing demo |
-| `npm run verify "claim"` | Verify claim without Hedera submission | `npm run verify "Water is wet"` |
-| `npm run create-topic` | Create new Hedera topic | Generate new topic ID |
-
-## 🔧 Configuration Options
-
-### Verification Modes
-
-1. **🤖 Grok AI Mode** (default): Uses Grok API for intelligent verification
-2. **🎭 Mock Mode**: Uses keyword-based verification for testing
-3. **📏 Rule-based Mode**: Uses heuristic rules for verification
-
-### Processing Options
-
-```javascript
-const options = {
-  saveLocally: true,        // Save to claims_log.json
-  submitToHedera: true,     // Submit to Hedera Consensus Service
-  verificationOptions: {
-    useAI: true,           // Use Grok AI verification
-    mockMode: false,       // Use mock verification (for testing)
-    confidence: 85         // Minimum confidence threshold
-  }
-};
-```
-
-### Environment Variables
-
-| Variable | Required | Description | Example |
-|----------|----------|-------------|---------|
-| `OPERATOR_ID` | ✅ | Your Hedera account ID | `0.0.1234567` |
-| `OPERATOR_KEY` | ✅ | Your Hedera private key | `302e020100300506...` |
-| `TOPIC_ID` | ✅ | Hedera topic for submissions | `0.0.7654321` |
-| `GROK_API_KEY` | ⚠️ | Grok API key (falls back to mock if missing) | `gsk_...` |
-| `AGENT_REGISTRY_CONTRACT` | ⚠️ | Deployed AgentRegistry contract ID (`npm run deploy:registry`) | `0.0.9876543` |
-| `TRUTH_AGENT_ID` | ⚙️ | Human-readable ID stored on-chain | `truth-agent` |
-| `BADGE_AGENT_ID` | ⚙️ | Human-readable ID stored on-chain | `badge-agent` |
-| `API_BASE_URL` | ⚙️ | Backend URL used in agent metadata | `http://localhost:3002` |
-| `AGENT_METADATA_BASE` | ⚙️ | Optional URL for hosted agent JSON | `https://yourdomain.com/agents` |
-
-### Frontend Environment Variables (`frontend/.env`)
-
-| Variable | Required | Description | Example |
-|----------|----------|-------------|---------|
-| `VITE_API_URL` | ⚙️ | Backend base URL for API calls | `http://localhost:3002` |
-| `VITE_WALLETCONNECT_PROJECT_ID` | ⚠️ | WalletConnect Project ID (from wallets.cloud) to enable HashConnect pairing | `2a1b...` |
-
-> Without a WalletConnect project ID the dApp falls back to manual account entry—great for demos, but use HashConnect for real Hedera wallet signatures.
-
-## 📊 System Output
-
-Each processed claim generates a comprehensive record:
-
-```json
-{
-  "id": "claim_1691234567890_abc123",
-  "claim": "The sky is blue during the day",
-  "status": "TRUE",
-  "confidence": 95,
-  "reasoning": "The sky appears blue due to Rayleigh scattering...",
-  "verifier": "Grok AI",
-  "timestamp": "2025-08-08T12:00:00.000Z",
-  "rawResponse": "TRUE - The sky appears blue during...",
-  "hedera": {
-    "transactionId": "0.0.6398676@1691234567.890123456",
-    "topicId": "0.0.6523053",
-    "status": "SUCCESS"
-  }
-}
-```
-
-### 📈 Data Fields Explained
-
-| Field | Description | Example Values |
-|-------|-------------|----------------|
-| `id` | Unique timestamp-based identifier | `claim_1691234567890_abc123` |
-| `claim` | Original text being verified | `"The Earth is round"` |
-| `status` | Verification result | `TRUE`, `FALSE`, `UNCERTAIN` |
-| `confidence` | Confidence percentage (0-100%) | `95` |
-| `reasoning` | Explanation from verifier | AI-generated explanation |
-| `verifier` | System that performed verification | `Grok AI`, `Mock System`, etc. |
-| `timestamp` | When verification was performed | ISO 8601 format |
-| `hedera` | Blockchain submission details | Transaction ID, status |
-
-### 🛡️ Marketplace Purchase with Verifiable Agent Proof
-
-Every sale now includes the agent’s on-chain registry proof plus badge rewards:
-
-```json
-{
-  "success": true,
-  "sale": {
-    "claim": "is AI going to be next big thing?",
-    "verdict": "TRUE",
-    "confidence": 85,
-    "buyer": "0.0.9405964",
-    "price": 0.01,
-    "transactionId": "tx_1763558567024_auqmxn3gt",
-    "agent": {
-      "id": "truth-agent",
-      "proof": {
-        "agentId": "truth-agent",
-        "agentKey": "0x3ec396d3b8716aaa765ed7f5d46f48b2eead2fbe6da55bb0ebb0ae2eac824e4b",
-        "contractId": "0.0.7286827",
-        "metadataURI": "https://hederamind.app/agents/truth",
-        "registeredAt": 1763558440,
-        "active": true
-      }
-    }
-  },
-  "badge": {
-    "minted": true,
-    "badge": {
-      "tier": "UNCOMMON",
-      "purchaseCount": 10
-    }
-  }
-}
-```
-
-> 🔗 Verify the agent registry on HashScan: https://hashscan.io/testnet/contract/0.0.7286827
-
-## � Programmatic Usage
-
-```javascript
-import { HederaMind } from './src/main.js';
-
-const hederaMind = new HederaMind();
-
-// Process a single claim
-const result = await hederaMind.processClaim("The Earth is round", {
-  saveLocally: true,
-  submitToHedera: true,
-  verificationOptions: {
-    useAI: true,
-    mockMode: false
-  }
-});
-
-// Process multiple claims
-const claims = ["Claim 1", "Claim 2", "Claim 3"];
-const results = await hederaMind.processClaimsBatch(claims);
-
-// Get system stats
-const stats = await hederaMind.getSystemStats();
-
-// Show dashboard
-await hederaMind.showDashboard();
-```
-
-## 🧪 Testing & Development
-
-### 🔄 Testing Modes
-
-**Test without API calls (Mock Mode):**
-```bash
-# This will use keyword-based verification instead of Grok API
-node -e "
-import('./src/verifyClaim.js').then(async (m) => {
-  const result = await m.ClaimVerifier.createVerifiedClaim('Test claim', { mockMode: true });
-  console.log('Mock result:', result);
-})"
-```
-
-**Test Grok API Connection:**
-```bash
-# This will attempt to use Grok API or fall back to mock
-node -e "
-import('./src/verifyClaim.js').then(async (m) => {
-  const result = await m.ClaimVerifier.createVerifiedClaim('The sky is blue');
-  console.log('Verification method:', result.verifier);
-})"
-```
-
-### 🎯 Sample Claims for Testing
-
-**High-confidence TRUE claims:**
-- "Water boils at 100°C at sea level"
-- "The Earth revolves around the Sun"
-- "Gravity causes objects to fall"
-
-**High-confidence FALSE claims:**
-- "The Earth is flat"
-- "Water boils at 50°C at sea level" 
-- "The Sun revolves around the Earth"
-
-**Uncertain/Debatable claims:**
-- "AI will surpass human intelligence by 2030"
-- "Bitcoin will reach $1 million by 2025"
-- "Aliens have visited Earth"
-
-## 🔐 Security & Privacy
-
-- **🔑 Private Keys**: Never logged or exposed, stored only in `.env`
-- **🛡️ API Keys**: Securely loaded from environment variables
-- **📱 Local Data**: Claims stored locally in JSON format
-- **⛓️ Blockchain**: Immutable record on Hedera Consensus Service
-- **🚫 No PII**: System only processes claims, no personal information
-
-## 🚨 Error Handling
-
-The system includes comprehensive error handling:
-
-- **🌐 Network Issues**: Graceful fallback to mock verification
-- **🔑 Missing Keys**: Clear error messages and setup instructions  
-- **📊 Invalid Data**: Input validation and sanitization
-- **⛓️ Hedera Errors**: Detailed transaction failure reporting
-- **🤖 AI Failures**: Automatic fallback to alternative verification methods
-
-## 📈 Monitoring & Analytics
-
-### Local Analytics
-- View `claims_log.json` for complete history
-- Use `npm start stats` for real-time dashboard
-- Track accuracy, confidence trends, and verification methods
-
-### Hedera Analytics  
-- Monitor transactions on [HashScan](https://hashscan.io/testnet)
-- Search your Topic ID to see all submissions
-- Verify immutable claim records on blockchain
-
-## � Future Enhancements
-
-### Planned Features
-- **🌐 Web Interface**: Browser-based claim submission and dashboard
-- **🗄️ Database Integration**: MongoDB support for scalable storage
-- **🤖 Multi-AI Support**: Integration with GPT-4, Claude, Gemini, etc.
-- **📊 Advanced Analytics**: Trend analysis and prediction models
-- **⚖️ Dispute System**: Claim challenge and appeal mechanisms
-- **🔗 API Endpoints**: RESTful API for external integrations
-- **📱 Mobile App**: iOS/Android app for claim submission
-- **🏢 Enterprise Features**: Multi-tenant support and user management
-
-### Contributing
+### Tech Stack
+
+**Frontend:**
+- React 19 + TypeScript
+- Vite
+- TailwindCSS
+- TanStack Query
+- Lucide React Icons
+
+**Backend:**
+- Node.js + Express
+- GROQ AI SDK (Llama 3.3 70B)
+- Hedera SDK
+- Solidity (Smart Contracts)
+
+**Blockchain:**
+- Hedera Consensus Service (HCS)
+- Hedera Token Service (HTS)
+- Smart Contracts (Agent Registry)
+
+**Storage:**
+- IPFS (Pinata) - Badge images
+- File-based JSON - Local data
+
+---
+
+## 🔗 Blockchain Verification
+
+### Smart Contracts
+
+- **Agent Registry**: [`0.0.7286827`](https://hashscan.io/testnet/contract/0.0.7286827)
+  - ERC-8004-style on-chain agent identity
+  - Verifies TruthAgent and BadgeAgent
+
+- **Badge Token**: [`0.0.7288739`](https://hashscan.io/testnet/token/0.0.7288739)
+  - NFT collection for truth seeker badges
+  - Tiers: BRONZE, UNCOMMON, RARE, EPIC, LEGENDARY
+
+### Sample Transactions
+
+All transactions are real and verifiable on [HashScan Testnet](https://hashscan.io/testnet).
+
+---
+
+## 💡 Key Differentiators
+
+1. **On-Chain Agent Proofs**: Only platform with verifiable agent identities via smart contract
+2. **Revenue Sharing**: Sustainable economic model (70/20/10 split)
+3. **Real Blockchain**: Actual Hedera transactions, not simulated
+4. **Autonomous Agents**: Agents work independently and coordinate automatically
+5. **Production Ready**: Fully functional, not a prototype
+
+---
+
+## 📊 Current Metrics
+
+- ✅ **3 verified claims** (real GROQ AI verified)
+- ✅ **5 marketplace sales** (real HBAR transfers)
+- ✅ **2 NFT badges minted** (real NFTs on Hedera)
+- ✅ **3 active users**
+- ✅ **100% on-chain** transactions
+
+---
+
+## 🗺️ Roadmap
+
+### ✅ Phase 1: MVP (Current)
+- AI verification ✅
+- Agent marketplace ✅
+- NFT badges ✅
+- Revenue sharing ✅
+
+### 🚀 Phase 2: Community (Q1 2025)
+- User-submitted claims
+- Community voting
+- Reputation system
+
+### 📈 Phase 3: Staking (Q2 2025)
+- Staking for verifiers
+- Dispute resolution
+- Penalty/reward system
+
+### 🌐 Phase 4: Enterprise (Q3 2025)
+- Enterprise API
+- Data monetization
+- Analytics dashboard
+
+### 🏛️ Phase 5: DAO (Q4 2025)
+- DAO governance
+- Agent ecosystem
+- Token-based voting
+
+---
+
+## 🔐 Security
+
+- **Private Keys**: Stored locally in browser (never sent to server)
+- **API Keys**: Securely loaded from environment variables
+- **Blockchain**: All transactions immutable on Hedera
+- **No PII**: System only processes claims, no personal information
+
+---
+
+## 🐛 Troubleshooting
+
+**Backend won't start:**
+- Check `.env` file exists and has all required variables
+- Ensure Node.js 18+ is installed
+- Run `npm install` to install dependencies
+
+**Frontend can't connect:**
+- Verify `VITE_API_URL` points to running backend
+- Check backend is running on port 3002
+- Check browser console for errors
+
+**Wallet connection fails:**
+- Ensure Account ID format is correct (`0.0.xxxxx`)
+- Verify Private Key is valid Hedera format
+- Check you're using Testnet credentials
+
+**Badge minting shows "demo":**
+- Ensure `BADGE_TOKEN_ID` is set in backend `.env`
+- Run `npm run create:badge-token` to create token
+- Restart backend after setting token ID
+
+---
+
+## 📚 Documentation
+
+- [Deployment Guide](DEPLOYMENT_GUIDE.md)
+- [Demo Script](DEMO_SCRIPT.md)
+- [Pitch Deck](PITCH_DECK.md)
+- [Submission Checklist](SUBMISSION_CHECKLIST.md)
+
+---
+
+## 🤝 Contributing
+
 Contributions welcome! Please:
 1. Fork the repository
 2. Create a feature branch
 3. Add tests for new functionality
 4. Submit a pull request
 
-## 🆘 Troubleshooting
-
-### Common Issues
-
-**❌ "Missing GROK_API_KEY"**
-- Solution: Add your Grok API key to `.env` file
-- Fallback: System will use mock verification automatically
-
-**❌ "Hedera connection failed"**
-- Check `OPERATOR_ID` and `OPERATOR_KEY` in `.env`
-- Ensure you have testnet HBAR balance
-- Verify topic ID exists
-
-**❌ "Command not found"**
-- Run `npm install` to install dependencies
-- Use `node src/main.js` instead of `npm start` if needed
-
-**❌ "Module import errors"**
-- Ensure `"type": "module"` is in `package.json`
-- Use Node.js v16+ for ES modules support
-
-### Getting Help
-- 📧 Open an issue on GitHub
-- 📖 Check Hedera documentation: [docs.hedera.com](https://docs.hedera.com)
-- 🤖 Grok API documentation: [xai.ai](https://xai.ai)
+---
 
 ## 📄 License
 
 MIT License - see LICENSE file for details.
 
+---
+
 ## 🙏 Acknowledgments
 
-- **Hedera Hashgraph** for the consensus service
-- **xAI** for the Grok API
-- **Node.js** community for excellent tooling
-- **Open source contributors** who make projects like this possible
+- **Hedera Hashgraph** for the consensus service and token service
+- **GROQ** for fast AI inference
+- **Open source community** for excellent tooling
 
 ---
 
 **Made with ❤️ for the decentralized future of truth verification**
 
-*HederaMind v1.0 - Bringing AI and blockchain together for trustworthy information*
+*Hedera Mind: Ascension - Bringing AI and blockchain together for trustworthy information*
+
+---
+
+## 🔗 Links
+
+- 🌐 **Live Demo**: [Your deployed URL]
+- 📱 **GitHub**: [Your repo]
+- 🔗 **HashScan**: 
+  - [Agent Registry](https://hashscan.io/testnet/contract/0.0.7286827)
+  - [Badge Token](https://hashscan.io/testnet/token/0.0.7288739)

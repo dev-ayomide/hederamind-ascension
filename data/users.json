@@ -3,8 +3,24 @@
     "accountId": "0.0.9405964",
     "id": "user_1763479309133_fbff9j",
     "createdAt": "2025-11-18T15:21:49.133Z",
-    "purchaseCount": 35,
-    "badgesEarned": 7,
+    "purchaseCount": 0,
+    "badgesEarned": 1,
     "updatedAt": "2025-11-20T10:39:19.179Z"
+  },
+  {
+    "accountId": "0.0.6495497",
+    "id": "user_1763676474514_fj7f2n",
+    "createdAt": "2025-11-20T22:07:54.514Z",
+    "purchaseCount": 3,
+    "badgesEarned": 0,
+    "updatedAt": "2025-11-21T04:55:01.703Z"
+  },
+  {
+    "accountId": "0.0.6398676",
+    "id": "user_1763677369847_1i3g0j",
+    "createdAt": "2025-11-20T22:22:49.847Z",
+    "purchaseCount": 6,
+    "badgesEarned": 2,
+    "updatedAt": "2025-11-21T04:57:18.152Z"
   }
 ]

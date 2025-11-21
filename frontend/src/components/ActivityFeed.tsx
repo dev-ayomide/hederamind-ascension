@@ -47,9 +47,17 @@ export default function ActivityFeed() {
   const getActivityText = (activity: Activity) => {
     switch (activity.type) {
       case 'claim_verified':
-        return `New claim verified: "${(activity.data as any).claim?.substring(0, 50)}..."`
+        const claimData = activity.data as Claim
+        const submitter = claimData.submittedBy && claimData.submittedBy !== 'anonymous'
+          ? ` by ${claimData.submittedBy.substring(0, 10)}...`
+          : ''
+        return `New claim verified${submitter}: "${claimData.claim?.substring(0, 50)}..."`
       case 'claim_purchased':
-        return `Claim purchased by ${(activity.data as any).buyer}`
+        const saleData = activity.data as Sale
+        const seller = saleData.submittedBy && saleData.submittedBy !== 'truth-agent'
+          ? ` from ${saleData.submittedBy.substring(0, 10)}...`
+          : ' from TruthAgent'
+        return `Claim purchased by ${saleData.buyer.substring(0, 10)}...${seller}`
       case 'badge_minted':
         return `${(activity.data as any).tier} badge earned!`
       default:
