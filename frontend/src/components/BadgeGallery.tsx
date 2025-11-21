@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { Award, Medal, Star, Crown, Sparkles, Trophy } from 'lucide-react'
+import { Award, Medal, Star, Crown, Sparkles } from 'lucide-react'
 import { getAllBadges } from '../services/api'
 import type { Badge } from '../types'
 

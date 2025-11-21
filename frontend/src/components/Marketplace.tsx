@@ -10,7 +10,7 @@ const PURCHASE_AMOUNT_HBAR = Number(import.meta.env.VITE_PURCHASE_AMOUNT_HBAR ??
 
 export default function Marketplace() {
   const queryClient = useQueryClient()
-  const { accountId, isConnected, sendHbarTransfer, provider } = useWallet()
+  const { accountId, isConnected, sendHbarTransfer } = useWallet()
   const [buyingClaimId, setBuyingClaimId] = useState<string | null>(null)
   
   const { data: claims = [], isLoading } = useQuery({

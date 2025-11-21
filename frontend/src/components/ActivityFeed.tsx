@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { Activity as ActivityIcon, CheckCircle, ShoppingCart, Award, ShieldCheck, ExternalLink, ImageOff } from 'lucide-react'
 import { getActivity } from '../services/api'
-import type { Activity, AgentProof, Sale, Badge } from '../types'
+import type { Activity, AgentProof, Sale, Badge, Claim } from '../types'
 
 export default function ActivityFeed() {
   const { data: activities = [], isLoading } = useQuery({
