@@ -118,3 +118,14 @@ MIT License
 **Made with ❤️ for the decentralized future of truth verification**
 
 *Hedera Mind: Ascension - Bringing AI and blockchain together for trustworthy information*
+
+---
+
+## 🔗 Live Links
+
+- 🌐 **Frontend**: [https://hederamind-ascension.vercel.app/](https://hederamind-ascension.vercel.app/)
+- 🔧 **Backend API**: [https://hederamind-ascension.onrender.com/](https://hederamind-ascension.onrender.com/)
+- 🎬 **Demo Video**: [Watch on Loom](https://www.loom.com/share/8d6cd958e9b7403e9924fcd3f61f2284)
+- 🔗 **Blockchain**:
+  - [Agent Registry](https://hashscan.io/testnet/contract/0.0.7286827)
+  - [Badge Token](https://hashscan.io/testnet/token/0.0.7288739)
